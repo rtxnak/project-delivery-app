@@ -1,5 +1,8 @@
-import React from "react";
+import React from 'react';
 
-export default Customer = () => {
-
-};
+export default function Customer() {
+  return (
+    <>
+    </>
+  );
+}

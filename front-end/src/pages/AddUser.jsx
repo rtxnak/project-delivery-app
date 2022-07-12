@@ -1,66 +1,52 @@
-import React, { useState } from "react";
+import React from 'react';
 
 export default function AddUser() {
   return (
     <div className="loginContainer">
       <div className="formBox">
-      <label htmlFor="loginInput">Nome</label>
-        <div class="field">
-          <p class="control has-icons-left has-icons-right">
-            <input 
-              class="input" 
-              id='loginInput' 
-              type="text" 
-              placeholder="Seu nome" 
-            />
-            <span class="icon is-small is-left">
-              <i class="fas fa-envelope"></i>
-            </span>
-            <span class="icon is-small is-right">
-              <i class="fas fa-check"></i>
-            </span>
-          </p>
-        </div>
-        <div class="field">
-        <label htmlFor="loginInput">Email</label>
-          <p class="control has-icons-left has-icons-right">
-            <input 
-              class="input" 
-              id='loginInput' 
-              type="email" 
-              placeholder="seu-email@site.com.br" 
-            />
-            <span class="icon is-small is-left">
-              <i class="fas fa-envelope"></i>
-            </span>
-            <span class="icon is-small is-right">
-              <i class="fas fa-check"></i>
-            </span>
-          </p>
-        </div>
-        <div class="field">
-        <label htmlFor="loginInput">Senha</label>
-          <p class="control has-icons-left">
+        <div className="field">
+          <label htmlFor="loginInput">
+            Nome
             <input
-              id='loginInput' 
-              class="input" 
-              type="password" 
-              placeholder="*******" 
+              className="input"
+              id="loginInput"
+              type="text"
+              placeholder="Seu nome"
             />
-            <span class="icon is-small is-left">
-              <i class="fas fa-lock"></i>
-            </span>
-          </p>
+          </label>
         </div>
-        <div class="buttons">
-          <button 
-            class="button is-success" 
-            id='loginButton'
+        <div className="field">
+          <label htmlFor="loginInput">
+            Email
+            <input
+              className="input"
+              id="loginInput"
+              type="email"
+              placeholder="seu-email@site.com.br"
+            />
+          </label>
+        </div>
+        <div className="field">
+          <label htmlFor="loginInput">
+            Senha
+            <input
+              id="loginInput"
+              className="input"
+              type="password"
+              placeholder="*******"
+            />
+          </label>
+        </div>
+        <div className="buttons">
+          <button
+            type="button"
+            className="button is-success"
+            id="loginButton"
           >
             CADASTRAR
           </button>
         </div>
+      </div>
     </div>
-  </div>    
-  )
+  );
 }
