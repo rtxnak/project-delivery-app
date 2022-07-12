@@ -1,13 +1,10 @@
-import React from "react";
-import { Container } from "@mui/system";
-import LoginForm from "../components/LoginForm";
+import React from 'react';
+import LoginForm from '../components/LoginForm';
 
-const Login = () => {
+export default function Login() {
   return (
-    <div className='loginContainer'>
+    <div className="loginContainer">
       <LoginForm />
     </div>
   );
-};
-
-export default Login;
+}
