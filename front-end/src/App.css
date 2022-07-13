@@ -1,54 +1,47 @@
-.App {
+body, html {
+  margin: 0px;
+}
+
+.loginContainer {
+  width: 100vw;
+  height: 100vh;
+  background: #6C7A89;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
-  background: #0fa36b;
-  color: #464646;
+  background-color: gainsboro;
+}
+
+.formBox {
+  min-width: 425px;
+  min-height: 444px;
   display: flex;
   flex-direction: column;
-  font-family: sans-serif;
-  height: 100vh;
+  background-color: #B1C2BE;
+  border: 1px solid #B1C2BE;
+  align-content: center;
   justify-content: center;
-  width: 100%;
+  flex-wrap: wrap;
+  padding: 20px;
 }
 
-.App > .logo {
-  animation: shake 1.5s infinite ease;
-  color: aliceblue;
-  font-family: Montserrat , sans-serif;
-  font-size: 3em;
-  font-weight: 900;
+#loginButton {
+  top: 2em;
+  height: 59px;
+  width: 370px;
+  border-radius: 0.5em;
+  border-color: #036B52;
+  background-color: #036B52;
 }
 
-.rocksGlass {
-  animation: shake 1s infinite ease;
-  max-height: 80vh;
+#newUserBtn {
+  top: 2em;
+  height: 59px;
+  width: 370px;
+  border-radius: 0.5em;
+  border-color: #036B52;
+  color: #036B52;
 }
 
-@keyframes shake {
-
-  0% {
-    transform: rotate(5deg);
-  }
-
-  50% {
-    transform: rotate(-5deg);
-  }
-
-  100% {
-    transform: rotate(5deg);
-  }
-}
-
-@keyframes clink {
-
-  0% {
-    transform: rotate(-10deg);
-  }
-
-  50% {
-    transform: rotate(20deg);
-  }
-
-  100% {
-    transform: rotate(-10deg);
-  }
-}
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
