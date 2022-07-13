@@ -26,6 +26,7 @@ export default function LoginForm() {
         <label htmlFor="loginInput">
           Login
           <input
+            data-test-id="common_login__input-email"
             className="input"
             id="loginInput"
             type="email"
@@ -39,6 +40,7 @@ export default function LoginForm() {
         <label htmlFor="passwordInput">
           Senha
           <input
+            data-test-id="common_login__input-password"
             className="input"
             id="passwordInput"
             type="password"
@@ -50,6 +52,7 @@ export default function LoginForm() {
       </div>
       <div className="buttons">
         <button
+          data-test-id="common_login__button-login"
           type="button"
           className="button is-success"
           id="loginButton"
@@ -64,6 +67,7 @@ export default function LoginForm() {
           to="/register"
         >
           <button
+            data-test-id="common_login__button-register"
             type="button"
             className="button is-ghost"
             id="newUserBtn"

@@ -10,6 +10,7 @@ export default function Rotas() {
     <BrowserRouter>
       <Routes>
         <Route exact path="/" element={ <Login /> } />
+        <Route exact path="/login" element={ <Login /> } />
         <Route exact path="/register" element={ <AddUser /> } />
         <Route exact path="/customer" element={ <Customer /> } />
       </Routes>
