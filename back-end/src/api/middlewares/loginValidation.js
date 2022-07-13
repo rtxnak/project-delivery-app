@@ -43,7 +43,28 @@ const isValidEmail = async (req, res, next) => {
   next();
 };
 
+const isValidName = async (req, res, next) => {
+  const { name } = req.body;
+
+  if (name === '') {
+    return res.status(400).json({ message: '"name" is not allowed to be empty' });
+  }
+
+  if (name === undefined) {
+    return res.status(400).json({ message: '"name" is required' });
+  }
+
+  if (name.length < 12) {
+    return res.status(400).json(
+      { message: '"name" length must be at least 12 characters long' },
+    );
+  }
+
+  next();
+};
+
 module.exports = {
   isValidPassword,
   isValidEmail,
+  isValidName,
 };
