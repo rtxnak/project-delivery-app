@@ -1,4 +1,4 @@
-import adminService from '../services/adminService';
+const adminService = require('../services/adminService');
 
 const admin = async (req, res ) => { 
   try {
@@ -11,4 +11,6 @@ const admin = async (req, res ) => {
 };
 
 
-export default admin;
+module.exports = {
+  admin,
+};
