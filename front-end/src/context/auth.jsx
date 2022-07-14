@@ -1,9 +1,9 @@
 import React, { useState, useEffect, createContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { api, createSession } from '../services/api';
 
 export const AuthContext = createContext();
-// eslint-disable-next-line
 export const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
@@ -56,4 +56,8 @@ export const AuthProvider = ({ children }) => {
       { children }
     </AuthContext.Provider>
   );
+};
+
+AuthProvider.propTypes = {
+  children: PropTypes.node.isRequired,
 };
