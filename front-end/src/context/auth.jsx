@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { api, createSession } from '../services/api';
 
 export const AuthContext = createContext();
-
+// eslint-disable-next-line
 export const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
@@ -21,6 +21,7 @@ export const AuthProvider = ({ children }) => {
     const response = await createSession(email, password);
 
     const loggedUser = response.data.user;
+    // eslint-disable-next-line
     const token = response.data.token;
 
     localStorage.setItem('user', JSON.stringify(loggedUser));

@@ -1,5 +1,5 @@
-const cors = require('cors');
 const port = process.env.PORT || 3001;
+const cors = require('cors');
 const app = require('./app');
 
 app.use(cors());

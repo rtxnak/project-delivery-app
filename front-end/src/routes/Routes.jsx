@@ -14,6 +14,7 @@ import Admin from '../pages/Admin';
 import Seller from '../pages/Seller';
 
 export default function Rotas() {
+  // eslint-disable-next-line
   const Private = ({ children }) => {
     const { authenticated, loading } = useContext(AuthContext);
     if (loading) {
