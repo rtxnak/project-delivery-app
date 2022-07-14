@@ -2,13 +2,13 @@ const express = require('express');
 
 const productController = require('../controllers/productController');
 const customerController = require('../controllers/customerController');
-const { isValidNameProduct } = require('../middlewares/productValidation');
+const { isValidNewProduct } = require('../middlewares/productValidation');
 
 const productRoute = express.Router();
 
 productRoute
   .post('/',
-    isValidNameProduct, productController.create)
+  isValidNewProduct, productController.create)
   .get('/', 
     productController.read)
   .get('/:id',
