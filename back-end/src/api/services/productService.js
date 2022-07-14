@@ -1,7 +1,12 @@
 const { Products } = require('../../database/models');
+const { NotFound } = require('../utils/Erros');
 
 const create = async (payload) => {
-  const newProduct = await Products.create(payload);
+  const { name, price, urlImage } = payload;
+  const newProduct = await Products
+    .create({
+      name, price, urlImage,
+    });
   return { code: 201, content: newProduct };
 };
 
@@ -12,16 +17,29 @@ const read = async () => {
 
 const readOne = async (id) => {
   const product = await Products.findOne({ where: { id } });
+  if (!product) throw new NotFound();
   return { code: 200, content: product };
 };
 
 const update = async (id, payload) => {
-  const product = await Products.update({ payload }, { where: { id } });
-  return { code: 204, content: product };
+  const { name, price, urlImage } = payload;
+
+  const isValidId = await readOne(id);
+
+  if (!isValidId) throw new NotFound(id);
+
+  const [product] = await Products.update({ name, price, urlImage }, { where: { id } });
+
+  console.log(product);
+
+  if (product) return 'Produto atualizado com sucesso!';
+  
+  return 'O produto já está atualizado!';
 };
 
 const destroy = async (id) => {
-  await Products.destroy({ where: { id } });
+  const productDestroy = await Products.destroy({ where: { id } });
+  if (!productDestroy) throw new NotFound();
 };
 
 module.exports = {
