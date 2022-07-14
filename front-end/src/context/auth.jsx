@@ -20,14 +20,15 @@ export const AuthProvider = ({ children }) => {
   const login = async (email, password) => {
     const response = await createSession(email, password);
 
-    const loggedUser = response.data.user;
-    // eslint-disable-next-line
-    const token = response.data.token;
+    const { userName, token } = response.data;
+
+    const loggedUser = userName;
+    const validToken = token;
 
     localStorage.setItem('user', JSON.stringify(loggedUser));
     localStorage.setItem('token', token);
 
-    api.defaults.headers.Authorization = `Bearer ${token}`;
+    api.defaults.headers.Authorization = `Bearer ${validToken}`;
     setUser({ loggedUser });
     if (response.data.role === 'customer') {
       navigate('/customer');

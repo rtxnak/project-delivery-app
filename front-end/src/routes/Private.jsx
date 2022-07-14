@@ -14,7 +14,6 @@ const Private = ({ children }) => {
   return children;
 };
 
-
 Private.propTypes = {
   children: PropTypes.node.isRequired,
 };
