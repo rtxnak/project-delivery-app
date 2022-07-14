@@ -1,4 +1,4 @@
-import userModel from '../../database/models/users';
+const { Users } = require('../../database/models');
 
 const getAllUsers = async () => {
   const allUsers = await userModel.findAll();
@@ -9,13 +9,18 @@ const getAllUsers = async () => {
 const deleteUser = async (id) => {
   const { id } = req.params.id;
 
-  const User = await userModel.findBypK({ where: { id } });
+  const userEmail = await Users.findByPk(Number(id));
 
-  if (User) {
-    
-  }
-}
+  if (userEmail) {
+    await Users.destroy({
+      where: {
+        email: userEmail.email,
+      },
+    });
+  };
+};
 
 module.exports = {
   getAllUsers,
+  deleteUser,
 }
