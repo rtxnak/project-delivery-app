@@ -1,6 +1,6 @@
 const adminService = require('../services/adminService');
 
-const admin = async (req, res ) => { 
+const admin = async (_req, res ) => { 
   try {
     const allUsers = adminService.allUsers();
     

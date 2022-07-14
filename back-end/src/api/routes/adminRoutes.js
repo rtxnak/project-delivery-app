@@ -7,3 +7,13 @@ const adminRoute = express.Router();
 adminRoute
   .get('/',
   adminController.admin)
+  .post('/',
+    isValidPassword,
+    isValidEmail,
+    isValidName,
+    registerController.register)
+  .delete('/:id');
+
+module.exports = {
+  adminRoute,
+};
