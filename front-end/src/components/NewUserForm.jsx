@@ -27,6 +27,7 @@ export default function NewUserForm() {
               type="text"
               placeholder="Seu nome"
               onChange={ ({ target: { value } }) => setName(value) }
+              value={ name }
             />
           </label>
         </div>
@@ -40,6 +41,7 @@ export default function NewUserForm() {
               type="email"
               placeholder="seu-email@site.com.br"
               onChange={ ({ target: { value } }) => setEmail(value) }
+              value={ email }
             />
           </label>
         </div>
@@ -53,6 +55,7 @@ export default function NewUserForm() {
               type="password"
               placeholder="*******"
               onChange={ ({ target: { value } }) => setPassword(value) }
+              value={ password }
             />
           </label>
         </div>
