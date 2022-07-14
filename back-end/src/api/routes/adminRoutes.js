@@ -18,6 +18,4 @@ adminRoute
   adminController.deleteUser,
   );
 
-module.exports = {
-  adminRoute,
-};
+module.exports = adminRoute;

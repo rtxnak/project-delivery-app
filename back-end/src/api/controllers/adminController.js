@@ -2,7 +2,8 @@ const adminService = require('../services/adminService');
 
 const admin = async (_req, res ) => { 
   try {
-    const allUsers = adminService.allUsers();
+
+    const allUsers = await adminService.getAllUsers();
     
     return res.status(200).json(allUsers);
   } catch (error) {
@@ -11,12 +12,10 @@ const admin = async (_req, res ) => {
 };
 
 const deleteUser = async (req, res) => {
-  const { id } = req.params.id;
+  const { id } = req.params;
 
-  try{
-    const delUser = await adminService.deleteUser(id);
-
-    
+  try {
+    const delUser = await adminService.deleteUser(Number(id));
       return res.status(code).json(message);
   } catch (error) {
     return res.status(500).json({ message: 'Internal Server Error' });

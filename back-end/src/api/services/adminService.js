@@ -1,13 +1,14 @@
 const { Users } = require('../../database/models');
 
 const getAllUsers = async () => {
-  const allUsers = await userModel.findAll();
+  const allUsers = await Users.findAll();
 
   return allUsers;
 };
 
-const deleteUser = async (id) => {
+const deleteUser = async () => {
   const { id } = req.params.id;
+  console.log(id);
 
   const userEmail = await Users.findByPk(Number(id));
 
