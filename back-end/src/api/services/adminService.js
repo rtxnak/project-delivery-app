@@ -17,7 +17,16 @@ const deleteUser = async (id) => {
         email: userEmail.email,
       },
     });
+    return {
+      code: 200,
+      message: 'User deleted',
+    }
   };
+
+  return {
+    code: 404,
+    message: 'invalid fields',
+  }
 };
 
 module.exports = {
