@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../context/auth';
 
-export default function Customer() {
+export default function Seller() {
   const { logOut } = useContext(AuthContext);
 
   const handleLogout = () => {
