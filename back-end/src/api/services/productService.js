@@ -1,8 +1,10 @@
 const { Products } = require('../../database/models');
-const { NotFound } = require('../utils/Erros');
+const { NotFound, BadRequest } = require('../utils/Erros');
 
 const create = async (payload) => {
   const { name, price, urlImage } = payload;
+  const nameExists = await Products.findOne({ where: { name } });
+  if (nameExists) throw new BadRequest('Já existe um produto cadastrado com este nome');
   const newProduct = await Products
     .create({
       name, price, urlImage,

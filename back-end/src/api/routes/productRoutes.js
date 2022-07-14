@@ -1,19 +1,29 @@
 const express = require('express');
 
 const productController = require('../controllers/productController');
+const { isValidNameProduct } = require('../middlewares/productValidation');
 
 const productRoute = express.Router();
 
 productRoute
   .post('/',
-    productController.create)
-      .get('/', 
-        productController.read)
-          .get('/:id',
-            productController.readOne)
-        .put('/:id',
-      productController.update)
-    .delete('/:id',
-  productController.destroy);
+    isValidNameProduct, productController.create)
+  .get('/', 
+    productController.read)
+  .get('/:id',
+    productController.readOne)
+  .put('/:id',
+    productController.update)
+  .delete('/:id',
+    productController.destroy);
 
-module.exports = productRoute;
+const customerRoute = express.Router();
+
+customerRoute
+  .get('/products', productController.read)
+  .get('/products/:id', productController.readOne);
+
+module.exports = {
+  productRoute,
+  customerRoute,
+};

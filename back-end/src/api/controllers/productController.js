@@ -6,7 +6,7 @@ const create = async (req, res) => {
     const newProduct = await productService.create(body);
     return res.status(newProduct.code).json(newProduct.content);
   } catch (error) {
-    return res.status(500).json({ message: error.message });
+    return res.status(error.code).json({ message: error.message });
   }
 };
 
@@ -31,7 +31,7 @@ const update = async (req, res) => {
     const productUp = await productService.update(id, body);
     return res.status(200).json({ message: productUp });
   } catch (error) {
-    return res.status(404).json({ message: error.message });
+    return res.status(error.code).json({ message: error.message });
   }
 };
 
