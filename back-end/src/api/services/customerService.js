@@ -1,5 +1,5 @@
 const { NotFound } = require('../utils/Erros');
-const { sales, salesProducts, users } = require('../../database/models');
+const { sales, salesProducts, users, products } = require('../../database/models');
 
 const validationIds = async (userId, sellerId) => {
   const ifUserExist = await users.findOne({ where: { id: userId } });
@@ -31,6 +31,36 @@ async function create(saleInformation) {
   });
 }
 
+async function getById(saleId) {
+  const sale = await sales.findByPk(saleId,
+    {
+      include: [
+        { model: products, as: 'products' },
+        { model: users, as: 'seller', attributes: ['name', 'id'] },
+      ],
+    });
+
+  console.log(sale.dataValues);
+  if (!sale) throw new NotFound('Venda não encontrada');
+  return sale;
+}
+
+const update = async (saleId, status) => {
+  const saleUpdated = await sales.update(
+    { status },
+    { where: { id: saleId } },
+  );
+  const resultCode = saleUpdated[0];
+  if (resultCode === 1) {
+    return { code: 200, message: 'order status updated' };
+  }
+  if (resultCode === 0) {
+    return { code: 400, message: 'order status did not updated' };
+  }
+};
+
 module.exports = {
   create,
+  getById,
+  update,
 };
