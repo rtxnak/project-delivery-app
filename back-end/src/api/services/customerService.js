@@ -59,8 +59,20 @@ const update = async (saleId, status) => {
   }
 };
 
+const getAll = async (userId) => {
+  const salesResult = await sales.findAll({
+    where: { userId },
+    include: [
+      { model: products, as: 'products' },
+    ],
+  });
+
+  return { code: 200, content: { salesResult } };
+};
+
 module.exports = {
   create,
   getById,
   update,
+  getAll,
 };
