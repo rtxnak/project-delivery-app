@@ -10,7 +10,7 @@ const routes = express.Router();
 
 routes.use('/login', loginRoute);
 routes.use('/register', registerRoute);
-routes.use('/seller', sellerRoute);.
+routes.use('/seller', sellerRoute);
 routes.use('/admin/manage', adminRoute);
 routes.use('/customer', customerRoute);
 // routes.use('/products', productRoute);

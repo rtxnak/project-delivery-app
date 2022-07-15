@@ -8,14 +8,13 @@ const adminRoute = express.Router();
 
 adminRoute
   .get('/',
-  adminController.admin)
+    adminController.admin)
   .post('/',
     isValidPassword,
     isValidEmail,
     isValidName,
     registerController.register)
   .delete('/:id',
-  adminController.deleteUser,
-  );
+    adminController.deleteUser);
 
 module.exports = adminRoute;
