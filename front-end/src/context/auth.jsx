@@ -19,10 +19,10 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     const response = await createSession(email, password);
+  
+    const { name, token } = response.data;
 
-    const { userName, token } = response.data;
-
-    const loggedUser = userName;
+    const loggedUser = name;
     const validToken = token;
 
     localStorage.setItem('user', JSON.stringify(loggedUser));
