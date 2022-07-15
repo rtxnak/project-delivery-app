@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const Users = sequelize.define('Users', {
+  const Users = sequelize.define('users', {
     name: {
       type: DataTypes.STRING,
     },
@@ -15,11 +15,11 @@ module.exports = (sequelize, DataTypes) => {
     },
   },
 
-    { tableName: 'Users', timestamps: false },
+    { tableName: 'users', timestamps: false },
   );
 
   Users.associate = (models) => {
-    Users.hasMany(models.Sales, { as: 'Sales', foreignKey: 'id' });
+    Users.hasMany(models.sales, { as: 'sales', foreignKey: 'id' });
   }
 
   return Users;

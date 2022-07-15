@@ -6,6 +6,8 @@ const sellerRoute = express.Router();
 
 sellerRoute
   .post('/orders',
-  sellerController.getAllSales);
+  sellerController.getAllSales)
+  .put('/orders',
+  sellerController.updateSaleStatus);
 
 module.exports = sellerRoute;

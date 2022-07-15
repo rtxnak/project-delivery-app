@@ -15,6 +15,18 @@ const getAllSales = async (req, res) => {
   }
 };
 
+const updateSaleStatus = async (req, res) => {
+  try {
+    const { orderId, status } = req.body;
+    const result = await sellerService.update(orderId, status);
+    const { code, message } = result;
+    return res.status(code).json({ message });
+  } catch (error) {
+    return res.status(500).json({ message: 'Internal Server Error' });
+  }
+};
+
 module.exports = {
   getAllSales,
+  updateSaleStatus,
 };
