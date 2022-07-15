@@ -3,6 +3,7 @@ import {
   BrowserRouter as Router,
   Route,
   Routes,
+  Navigate,
 } from 'react-router-dom';
 import { AuthProvider } from '../context/auth';
 import Private from './Private';
@@ -18,7 +19,7 @@ export default function Rotas() {
     <Router>
       <AuthProvider>
         <Routes>
-          <Route exact path="/" element={ <Login /> } />
+          <Route exact path="/" element={ <Navigate to="/Login" /> } />
           <Route exact path="/login" element={ <Login /> } />
           <Route exact path="/register" element={ <AddUser /> } />
           <Route exact path="/customer" element={ <Private><Customer /></Private> } />
@@ -29,3 +30,4 @@ export default function Rotas() {
     </Router>
   );
 }
+//
