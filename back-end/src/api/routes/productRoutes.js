@@ -23,7 +23,9 @@ const customerRoute = express.Router();
 customerRoute
   .get('/products', productController.read)
   .get('/products/:id', productController.readOne)
-  .post('/checkout', customerController.createSale);
+  .post('/checkout', customerController.createSale)
+  .get('/checkout/orders/:id', customerController.findSale)
+  .put('/checkout/orders/:id', customerController.updateSaleStatus);
 
 module.exports = {
   productRoute,
