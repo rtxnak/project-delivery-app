@@ -1,4 +1,5 @@
 const productService = require('../services/productService');
+const { ErrorBase } = require('../utils/Erros');
 
 const create = async (req, res) => {
   try {
@@ -6,7 +7,10 @@ const create = async (req, res) => {
     const newProduct = await productService.create(body);
     return res.status(newProduct.code).json(newProduct.content);
   } catch (error) {
-    return res.status(error.code).json({ message: error.message });
+    if (error instanceof ErrorBase) {
+      return res.status(error.code).json({ message: error.message });
+    }
+    return res.status(500).json({ message: error.message });
   }
 };
 
@@ -21,7 +25,10 @@ const readOne = async (req, res) => {
     const product = await productService.readOne(id);
     return res.status(product.code).json(product.content);
   } catch (error) {
-    return res.status(error.code).json({ message: error.message });
+    if (error instanceof ErrorBase) {
+      return res.status(error.code).json({ message: error.message });
+    }
+    return res.status(500).json({ message: error.message });
   }
 };
 
@@ -31,7 +38,10 @@ const update = async (req, res) => {
     const productUp = await productService.update(id, body);
     return res.status(200).json({ message: productUp });
   } catch (error) {
-    return res.status(error.code).json({ message: error.message });
+    if (error instanceof ErrorBase) {
+      return res.status(error.code).json({ message: error.message });
+    }
+    return res.status(500).json({ message: error.message });
   }
 };
 
@@ -41,7 +51,10 @@ const destroy = async (req, res) => {
     await productService.destroy(id);
     return res.status(204).end();
   } catch (error) {
-    return res.status(404).json({ message: 'Not found' });
+    if (error instanceof ErrorBase) {
+      return res.status(error.code).json({ message: error.message });
+    }
+    return res.status(500).json({ message: error.message });
   }
 };
 
