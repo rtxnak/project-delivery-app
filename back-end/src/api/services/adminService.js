@@ -6,17 +6,14 @@ const getAllUsers = async () => {
   return allUsers;
 };
 
-const deleteUser = async () => {
-  const { id } = req.params.id;
-  console.log(id);
+const deleteUser = async (id) => {
 
-  const userEmail = await Users.findByPk(Number(id));
-
+  const userEmail = await Users.findByPk(id);
   if (userEmail) {
     await Users.destroy({
       where: {
         email: userEmail.email,
-      },
+      }
     });
     return {
       code: 200,

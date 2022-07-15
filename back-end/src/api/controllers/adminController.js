@@ -16,7 +16,8 @@ const deleteUser = async (req, res) => {
 
   try {
     const delUser = await adminService.deleteUser(Number(id));
-      return res.status(code).json(message);
+    console.log(delUser);
+      return res.status(delUser.code).json(delUser.message);
   } catch (error) {
     return res.status(500).json({ message: 'Internal Server Error' });
   }
