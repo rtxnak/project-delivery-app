@@ -1,7 +1,6 @@
 const express = require('express');
 
 const productController = require('../controllers/productController');
-const customerController = require('../controllers/customerController');
 const { isValidNewProduct } = require('../middlewares/productValidation');
 
 const productRoute = express.Router();
@@ -18,16 +17,6 @@ productRoute
   .delete('/:id',
     productController.destroy);
 
-const customerRoute = express.Router();
-
-customerRoute
-  .get('/products', productController.read)
-  .get('/products/:id', productController.readOne)
-  .post('/checkout', customerController.createSale)
-  .get('/checkout/orders/:id', customerController.findSale)
-  .put('/checkout/orders/:id', customerController.updateSaleStatus);
-
 module.exports = {
   productRoute,
-  customerRoute,
 };
