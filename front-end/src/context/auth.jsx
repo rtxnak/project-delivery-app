@@ -19,7 +19,6 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     const response = await createSession(email, password);
-  
     const { name, token } = response.data;
 
     const loggedUser = name;
