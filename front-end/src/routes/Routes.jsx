@@ -22,7 +22,11 @@ export default function Rotas() {
           <Route exact path="/" element={ <Navigate to="/login" /> } />
           <Route exact path="/login" element={ <Login /> } />
           <Route exact path="/register" element={ <AddUser /> } />
-          <Route exact path="/customer/products" element={ <Private><Customer /></Private> } />
+          <Route
+            exact
+            path="/customer/products"
+            element={ <Private><Customer /></Private> }
+          />
           <Route exact path="/admin/manage" element={ <Private><Admin /></Private> } />
           <Route exact path="/seller" element={ <Private><Seller /></Private> } />
         </Routes>

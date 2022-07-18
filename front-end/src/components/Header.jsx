@@ -9,7 +9,6 @@ export default function Header() {
   };
 
   const user = localStorage.getItem('name');
-  const role = localStorage.getItem('role')
 
   return (
     <header className="header">
@@ -27,11 +26,6 @@ export default function Header() {
         data-testid="customer_products__element-navbar-user-full-name"
       >
         {user}
-      </div>
-      <div
-        className=""
-        data-testid="customer_products__element-navbar-user-full-name"
-      >
       </div>
     </header>
   );

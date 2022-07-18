@@ -17,9 +17,9 @@ export default function LoginForm() {
   const checkInputs = () => {
     const minCaracters = 6;
     const validate = /\S+@\S+\.\S+/.test(email);
-    if (validate && password.length >= minCaracters) { return false;}
-    else {return true;
-  }};
+    if (validate && password.length >= minCaracters) { return false; }
+    return true;
+  };
 
   return (
     <div className="formBox">
