@@ -12,7 +12,8 @@ import AddUser from '../pages/AddUser';
 import Login from '../pages/Login';
 import Customer from '../pages/Customer';
 import Admin from '../pages/Admin';
-import Seller from '../pages/Seller';
+import SellerOrders from '../pages/SellerOrders';
+import SellerDetails from '../pages/SellerDetails';
 
 export default function Rotas() {
   return (
@@ -24,7 +25,8 @@ export default function Rotas() {
           <Route exact path="/register" element={ <AddUser /> } />
           <Route exact path="/customer" element={ <Private><Customer /></Private> } />
           <Route exact path="/admin/manage" element={ <Private><Admin /></Private> } />
-          <Route exact path="/seller" element={ <Private><Seller /></Private> } />
+          <Route exact path="/seller/orders" element={ <SellerOrders /> } />
+          <Route exact path="/seller/orders/:id" element={ <SellerDetails /> } />
         </Routes>
       </AuthProvider>
     </Router>

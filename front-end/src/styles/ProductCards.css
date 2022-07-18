@@ -1,0 +1,120 @@
+.products-cards-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding-top: 2em;
+}
+
+.product-card {
+  align-items: center;
+  background-color: white;
+  border: black solid 5px;
+  border-radius: 9px;
+  box-shadow: 0 0 9px rgb(195, 195, 195);
+  display: flex;
+  flex-direction: column;
+  height: 19em;
+  justify-content: center;
+  margin-bottom: 3em;
+  width: 13em;
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.price-product {
+  margin: 0 1rem;
+  text-align: center;
+}
+
+.product-name {
+  margin: 0;
+  text-align: center;
+}
+
+.thumb {
+  border-radius: 9px;
+  height: 10rem;
+}
+
+.qty-container {
+  align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 8px;
+}
+
+/* Ref source for plus button:
+https://stackoverflow.com/questions/55281672/make-plus-symbol-in-css */
+
+.qty-plus-button {
+  aspect-ratio: 1/1;
+
+  --b: 4px;
+  background: conic-gradient(from 90deg at var(--b) var(--b), black 90deg, white 0)
+    calc(100% + var(--b) / 2) calc(100% + var(--b) / 2) /
+    calc(50% + var(--b)) calc(50% + var(--b));
+  border: 10px solid black;
+  border-radius: 50%;
+  color: transparent;
+  cursor: pointer;
+  display: inline-block;
+  transition: all 0.2s ease-in;
+  width: 40px;
+}
+
+.qty-plus-button:hover {
+  box-shadow: 0 0 15px rgb(97, 69, 69);
+  width: 43px;
+}
+
+.qty-minus-button {
+
+  --b: 4px;
+  aspect-ratio: 1;
+  background: conic-gradient(from 45deg at var(--b) var(--b), white 45deg, black 0)
+    calc(100% + var(--b) / 2) calc(100% + var(--b) / 2) /
+    calc(50% + var(--b) * 5) calc(50% + var(--b));
+  border: 10px solid black;
+  border-radius: 50%;
+  color: transparent;
+  cursor: pointer;
+  display: inline-block;
+  transition: all 0.2s ease-in;
+  width: 40px;
+}
+
+.qty-minus-button:hover {
+  box-shadow: 0 0 15px rgb(97, 69, 69);
+  width: 43px;
+}
+
+.qty-input {
+  border: none;
+  font-size: x-large;
+  margin: 1rem;
+  text-align: center;
+  width: 2rem;
+}
+
+.total-price-output {
+  color: black;
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+.price-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  height: 40px;
+  left: 90vw;
+  position: fixed;
+  top: -8px;
+  width: 100px;
+}
+
+.price-button:disabled .total-price-output {
+  color: rgb(207, 207, 207);
+}

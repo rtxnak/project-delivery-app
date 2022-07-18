@@ -1,0 +1,128 @@
+.tbl-container {
+  background-color: white;
+  border: solid 5px #1c2120;
+  border-radius: 8px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  margin-top: 32px;
+  padding: 16px 32px;
+  width: 80%;
+}
+
+.tbl-container table {
+  border-collapse: separate;
+  border-spacing: 0 6px;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.tbl-customer-seller {
+  border-radius: 0 10px 10px 0;
+}
+
+.content-container {
+  margin-bottom: 16px;
+}
+
+.tbl-content {
+  height: 100%;
+  margin-top: 0;
+}
+
+.tbl-container th {
+  color: #1c2120;
+  font-size: 20px;
+  font-weight: 700;
+  padding: 16px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.tbl-container td {
+  color: #1c2120;
+  font-size: 20px;
+  font-weight: 400;
+  padding: 5px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.tbl-container th:nth-child( 1 ), .tbl-container td:nth-child( 1 ) {
+  width: 5%;
+}
+
+.tbl-container th:nth-child( 2 ), .tbl-container td:nth-child( 2 ) {
+  width: 50%;
+}
+
+.tbl-container th:nth-child( 3 ), .tbl-container td:nth-child( 3 ) {
+  width: 5%;
+}
+
+.tbl-container th:nth-child( 4 ), .tbl-container td:nth-child( 4 ) {
+  width: 15%;
+}
+
+.tbl-container th:nth-child( 5 ), .tbl-container td:nth-child( 5 ) {
+  width: 10%;
+}
+
+.tbl-container th:nth-child( 6 ), .tbl-container td:nth-child( 6 ) {
+  width: 5%;
+}
+
+.tbl-container td:nth-child( 1 ) {
+  background-color: #ff5757;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.tbl-container td:nth-child( 2 ) {
+  background-color: #f2efeb;
+}
+
+.tbl-container td:nth-child( 3 ) {
+  background-color: #ff5757;
+}
+
+.tbl-container td:nth-child( 4 ) {
+  background-color: #d0ddd7;
+}
+
+.tbl-container td:nth-child( 5 ) {
+  background-color: #ffbd59;
+  border-radius: 0 10px 10px 0;
+}
+
+.tbl-container td:nth-child( 6 ) {
+  background-color: white;
+  border-left: solid 10px white;
+  padding: 0;
+}
+
+.tbl-container .total-container {
+  margin-bottom: 16px;
+  margin-top: 32px;
+}
+
+.tbl-container .total-price {
+  background-color: #ff5757;
+  border-radius: 8px;
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  padding: 16px 32px;
+}
+
+.tbl-container .tbl-content button {
+  background-color: #ac203c;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  font-size: xx-large;
+  height: 150%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}

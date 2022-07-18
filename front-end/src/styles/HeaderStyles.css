@@ -1,0 +1,127 @@
+/* body {
+  padding-left: 180px;
+  padding-top: 50px;
+} */
+
+.content {
+  bottom: 0;
+  left: 200px;
+  overflow-y: scroll;
+  position: fixed;
+  right: 0;
+  top: 51px;
+}
+
+.headerBack {
+  background-color: transparent;
+  left: 2px;
+  position: fixed;
+  top: 0;
+  transform: translate(-50%, -25%);
+}
+
+.logo {
+  height: 50px;
+  left: 15px;
+  position: fixed;
+  top: 15px;
+}
+
+.icon {
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  border-radius: 100%;
+  color: transparent;
+  cursor: pointer;
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  left: 5px;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  width: 50px;
+}
+
+.icon:disabled {
+  filter: invert(70%);
+}
+
+.icon:not( :disabled ):not( .selected ):hover {
+  background-color: black;
+  filter: invert(100%);
+}
+
+.products {
+  top: 80px;
+}
+
+.checkout {
+  top: 140px;
+  transition: all 0.2s ease-in;
+}
+
+.orders {
+  top: 200px;
+}
+
+.ordersSeller {
+  top: 80px;
+}
+
+.logoff {
+  top: 260px;
+}
+
+.logoffSeller {
+  top: 140px;
+}
+
+.iconImg {
+  max-height: 70%;
+  max-width: 70%;
+}
+
+.selected {
+  background: linear-gradient(to bottom, #bc7012 0%, #efd002 100%);
+}
+
+.hidden {
+  display: none;
+}
+
+.userName {
+  align-items: center;
+  background-color: rgb(207, 207, 207);
+  border-bottom: solid 1px black;
+  display: flex;
+  font-size: 20px;
+  font-weight: 500;
+  height: 50px;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+}
+
+.productsQty {
+  background: linear-gradient(to bottom, #bc7012 0%, #efd002 100%);
+  border: 2px solid black;
+  border-radius: 100%;
+  color: black;
+  font-weight: 500;
+  height: 20px;
+  left: 40px;
+  opacity: 1;
+  position: fixed;
+  text-align: center;
+  top: 155px;
+  transition: all 0.2s ease-in;
+  width: 20px;
+}
+
+.noOpacity {
+  opacity: 0;
+}

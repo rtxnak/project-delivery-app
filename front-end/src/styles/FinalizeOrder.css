@@ -1,0 +1,62 @@
+.form-container {
+  background-color: white;
+  border: solid 5px #1c2120;
+  border-radius: 8px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  margin-bottom: 32px;
+  margin-top: 32px;
+  padding: 16px 32px;
+  width: 80%;
+}
+
+.form-container h3 {
+  color: #1c2120;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 16px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.form-container .input-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+}
+
+.form-container input, label, select {
+  border: none;
+  border-radius: 8px;
+  color: #1c2120;
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 8px 16px;
+  text-align: center;
+}
+
+.form-container select {
+  background-color: #d0ddd7;
+}
+
+.form-container input {
+  background-color: #d0ddd7;
+  color: black;
+  font-size: 16px;
+  height: 16px;
+}
+
+.form-container button {
+  align-self: center;
+  background-color: #ff5757;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  font-size: 24px;
+  font-weight: 700;
+  margin-right: 40px;
+  margin-top: 24px;
+  padding: 16px 80px;
+}
