@@ -1,7 +1,7 @@
 const { users } = require('../../database/models');
 
 const getAllUsers = async () => {
-  const allUsers = await users.findAll();
+  const allUsers = await users.findAll({ attributes: ['id', 'name', 'email', 'role'] });
   return allUsers;
 };
 
