@@ -19,18 +19,20 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     const response = await createSession(email, password);
-    const { name, token } = response.data;
-
+    const { name, token, role } = response.data;
     const loggedUser = name;
     const validToken = token;
+    const validRole = role;
 
-    localStorage.setItem('user', JSON.stringify(loggedUser));
+    localStorage.setItem('name', JSON.stringify(loggedUser));
+    localStorage.setItem('email', JSON.stringify(email));
+    localStorage.setItem('role', JSON.stringify(validRole));
     localStorage.setItem('token', token);
 
     api.defaults.headers.Authorization = `Bearer ${validToken}`;
     setUser({ loggedUser });
     if (response.data.role === 'customer') {
-      navigate('/customer');
+      navigate('/customer/products');
     }
     if (response.data.role === 'administrator') {
       navigate('/admin/manage');
@@ -42,11 +44,13 @@ export const AuthProvider = ({ children }) => {
 
   const logOut = () => {
     console.log('logout');
-    localStorage.removeItem('user');
+    localStorage.removeItem('name');
+    localStorage.removeItem('email');
+    localStorage.removeItem('role');
     localStorage.removeItem('token');
     api.defaults.headers.Authorization = null;
     setUser(null);
-    navigate('/' && '/login');
+    navigate('/');
   };
   return (
     <AuthContext.Provider
