@@ -67,7 +67,7 @@ const ProductsTable = ({ products, removeItem, totalPrice }) => (
 export default ProductsTable;
 
 ProductsTable.propTypes = {
-  products: PropTypes.arrayOf(PropTypes.object).isRequired,
+  products: PropTypes.arrayOf(PropTypes.shape).isRequired,
   removeItem: PropTypes.func.isRequired,
   totalPrice: PropTypes.number.isRequired,
 };

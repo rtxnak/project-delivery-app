@@ -21,7 +21,7 @@ export default function NewUserForm() {
           <label htmlFor="loginInput">
             Nome
             <input
-              data-test-id="common_register__input-name"
+              data-testid="common_register__input-name"
               className="input"
               id="loginInput"
               type="text"
@@ -35,7 +35,7 @@ export default function NewUserForm() {
           <label htmlFor="loginInput">
             Email
             <input
-              data-test-id="common_register__input-email"
+              data-testid="common_register__input-email"
               className="input"
               id="loginInput"
               type="email"
@@ -49,7 +49,7 @@ export default function NewUserForm() {
           <label htmlFor="loginInput">
             Senha
             <input
-              data-test-id="common_register__input-password"
+              data-testid="common_register__input-password"
               id="loginInput"
               className="input"
               type="password"
@@ -64,7 +64,7 @@ export default function NewUserForm() {
             to="/login"
           >
             <button
-              data-test-id="common_register__button-register"
+              data-testid="common_register__button-register"
               type="button"
               className="button is-success"
               id="loginButton"

@@ -91,7 +91,7 @@ const TableDetails = ({ saleProducts }) => {
 
 TableDetails.propTypes = {
   saleProducts: PropTypes.shape({
-    Products: PropTypes.arrayOf(PropTypes.object).isRequired,
+    Products: PropTypes.arrayOf(PropTypes.shape).isRequired,
   }).isRequired,
 };
 

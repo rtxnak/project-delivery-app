@@ -101,7 +101,7 @@ const FinalizeOrder = ({ sellers, total, products }) => {
 export default FinalizeOrder;
 
 FinalizeOrder.propTypes = {
-  sellers: PropTypes.arrayOf(PropTypes.object).isRequired,
+  sellers: PropTypes.arrayOf(PropTypes.shape).isRequired,
   total: PropTypes.number.isRequired,
-  products: PropTypes.arrayOf(PropTypes.object).isRequired,
+  products: PropTypes.arrayOf(PropTypes.shape).isRequired,
 };
