@@ -19,15 +19,17 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     const response = await createSession(email, password);
-    const { name, token, role } = response.data;
+    const { name, token, role, id } = response.data;
     const loggedUser = name;
     const validToken = token;
     const validRole = role;
+    const validId = id;
 
     localStorage.setItem('name', JSON.stringify(loggedUser));
     localStorage.setItem('email', JSON.stringify(email));
     localStorage.setItem('role', JSON.stringify(validRole));
     localStorage.setItem('token', token);
+    localStorage.setItem('id', validId);
 
     api.defaults.headers.Authorization = `Bearer ${validToken}`;
     setUser({ loggedUser });

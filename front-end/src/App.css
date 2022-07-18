@@ -1,23 +1,19 @@
-body, html {
-  margin: 0px;
-}
-
 .loginContainer {
-  width: 100vw;
-  height: 100vh;
+  align-items: center;
   background: #6C7A89;
+  background-color: gainsboro;
   display: flex;
   flex-direction: row;
+  height: 100vh;
   justify-content: center;
-  align-items: center;
-  background-color: gainsboro;
+  width: 100vw;
 }
 
 .formBox {
-  min-width: 425px;
-  min-height: 444px;
   display: flex;
   flex-direction: column;
+  min-width: 425px;
+  min-height: 444px;
   background-color: #B1C2BE;
   border: 1px solid #B1C2BE;
   align-content: center;
@@ -45,9 +41,46 @@ body, html {
 }
 
 .hide {
+  padding: 20px;
+  height: 59px;
+  background-color: palevioletred;
   display: flex;
   justify-content: center;
-  padding-top: 30px;
+  margin: 45px 0px;
+}
+
+.header {
+  position: absolute;
+  background-color: #036B52;
+  flex-direction: row-reverse;
+  display: flex;
+  Width: 100%;
+  Height: 100px;
+}
+
+.logoutBtn {
+  position: relative;
+  width: 100px;
+  background-color: #7B61FF;
+  color: white;
+  border: 0;
+  justify-self: right;
+  justify-content: center;
+  font-weight: bold;
+  float: right;
+}
+
+.divUserName {
+  align-items: center;
+  background-color: #421981;
+  color: white;
+  display: flex;
+  float: right;
+  font-weight: bold;
+  justify-content: center;
+  justify-self: right;
+  position: relative;
+  width: 200px;
 }
 
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
