@@ -1,33 +1,63 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { api } from '../services/api';
 
 export default function NewUserForm() {
-  const [email, setEmail] = useState('');
-  const [name, setName] = useState('');
-  const [password, setPassword] = useState('');
+  const [userEmail, setUserEmail] = useState('');
+  const [userName, setUserName] = useState('');
+  const [userPassword, setUserPassword] = useState('');
+  const [failed, setfailed] = useState(true);
 
   const checkInputs = () => {
-    const MIN_LENGTH_PASSWORD = 6;
-    if (email.includes('@') && email.includes('.com')
-    && password.length > MIN_LENGTH_PASSWORD
-    && name !== '') return false;
+    const minPassword = 6;
+    const minUserName = 12;
+    if (
+      userEmail.includes('@')
+      && userEmail.includes('.com')
+      && userPassword.length >= minPassword
+      && userName.length >= minUserName
+    ) {
+      return false;
+    }
     return true;
   };
 
+  const userSaved = 201;
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const data = {
+      name: userName,
+      email: userEmail,
+      password: userPassword,
+    };
+    try {
+      const response = await api.post('/register', data);
+      console.log(response);
+      if (response.status === userSaved) {
+        window.location.href = '/customer/products';
+      }
+    } catch (error) {
+      setfailed(false);
+      setUserEmail('');
+      setUserName('');
+      setUserPassword('');
+    }
+  };
+
   return (
-    <div className="loginContainer">
-      <div className="formBox">
+    <div className="formBox">
+      <form onSubmit={ handleSubmit }>
         <div className="field">
           <label htmlFor="loginInput">
             Nome
             <input
-              data-test-id="common_register__input-name"
+              data-testid="common_register__input-name"
               className="input"
               id="loginInput"
               type="text"
               placeholder="Seu nome"
-              onChange={ ({ target: { value } }) => setName(value) }
-              value={ name }
+              onChange={ (e) => setUserName(e.target.value) }
+              value={ userName }
             />
           </label>
         </div>
@@ -35,13 +65,13 @@ export default function NewUserForm() {
           <label htmlFor="loginInput">
             Email
             <input
-              data-test-id="common_register__input-email"
+              data-testid="common_register__input-email"
               className="input"
               id="loginInput"
               type="email"
               placeholder="seu-email@site.com.br"
-              onChange={ ({ target: { value } }) => setEmail(value) }
-              value={ email }
+              onChange={ (e) => setUserEmail(e.target.value) }
+              value={ userEmail }
             />
           </label>
         </div>
@@ -49,32 +79,31 @@ export default function NewUserForm() {
           <label htmlFor="loginInput">
             Senha
             <input
-              data-test-id="common_register__input-password"
+              data-testid="common_register__input-password"
               id="loginInput"
               className="input"
               type="password"
               placeholder="*******"
-              onChange={ ({ target: { value } }) => setPassword(value) }
-              value={ password }
+              onChange={ (e) => setUserPassword(e.target.value) }
+              value={ userPassword }
             />
           </label>
         </div>
         <div className="buttons">
-          <Link
-            to="/login"
+          <button
+            data-testid="common_register__button-register"
+            type="submit"
+            className="button is-success"
+            id="loginButton"
+            disabled={ checkInputs() }
           >
-            <button
-              data-test-id="common_register__button-register"
-              type="button"
-              className="button is-success"
-              id="loginButton"
-              disabled={ checkInputs() }
-            >
-              CADASTRAR
-            </button>
-          </Link>
+            CADASTRAR
+          </button>
         </div>
-      </div>
+        <div className="hide">
+          { failed ? null : <p>ERRO!!! Usuário já cadastrado</p> }
+        </div>
+      </form>
     </div>
   );
 }
