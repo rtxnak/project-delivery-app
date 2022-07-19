@@ -5,7 +5,9 @@ export default function ProductCard({ product }) {
   const { id, name, price, urlImage } = product;
 
   return (
-    <div>
+    <div
+      className="products-card"
+    >
       <div
         data-testid={ `customer_products__element-card-price-${id}` }
       >
@@ -16,11 +18,12 @@ export default function ProductCard({ product }) {
       >
         {name}
       </div>
-      <div
+      <img
+        style={ { width: '100px' } }
+        alt={ name }
         data-testid={ `customer_products__img-card-bg-image-${id}` }
-      >
-        {urlImage}
-      </div>
+        src={ urlImage }
+      />
     </div>
   );
 }

@@ -83,4 +83,19 @@
   width: 200px;
 }
 
+.div-products-card {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.products-card {
+  text-align: center;
+  border-radius: 10px;
+  padding: 15px;
+  width: 200px;
+  height: 200px;
+  /* margin: auto; */
+  box-shadow: 8px 5px 10px rgba(0, 0, 0, 0.363);
+}
+
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
