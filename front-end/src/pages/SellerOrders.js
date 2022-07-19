@@ -28,7 +28,8 @@ function SellerOrders() {
       <div className="container-card-order">
         { sales.map((sale) => <CardOrders sale={ sale } key={ sale.id } />) }
       </div>
-    </div>);
+    </div>
+  );
 }
 
 export default SellerOrders;

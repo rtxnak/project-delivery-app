@@ -38,7 +38,7 @@ const Card = ({ id, thumb, name, price }) => {
     if (arrayPos >= 0) {
       setInputValue(products[arrayPos].quantity);
       setCardInfo(products[arrayPos]);
-    }
+    } // eslint-disable-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -47,7 +47,7 @@ const Card = ({ id, thumb, name, price }) => {
       const quantity = inputValue;
 
       setCardInfo({ ...cardInfo, quantity, totalValue });
-    }
+    } // eslint-disable-line react-hooks/exhaustive-deps
   }, [inputValue]);
 
   useEffect(() => {
