@@ -18,7 +18,7 @@ function SellerOrders() {
     setLoading(false);
   };
 
-  useEffect(() => { loadingSales(); }, []);
+  useEffect(() => { loadingSales(); }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (loading) return <h1>Carregando...</h1>;
 

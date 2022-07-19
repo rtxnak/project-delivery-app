@@ -14,6 +14,13 @@ export default function LoginForm() {
     login(email, password);
   };
 
+  const checkInputs = () => {
+    const minCaracters = 6;
+    const validate = /\S+@\S+\.\S+/.test(email);
+    if (validate && password.length >= minCaracters) { return false; }
+    return true;
+  };
+
   return (
     <div className="formBox">
       <form onSubmit={ handleSubmit }>
@@ -53,6 +60,7 @@ export default function LoginForm() {
             type="submit"
             className="button is-success"
             id="loginButton"
+            disabled={ checkInputs() }
           >
             LOGIN
           </button>

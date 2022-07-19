@@ -20,10 +20,14 @@ export default function Rotas() {
     <Router>
       <AuthProvider>
         <Routes>
-          <Route exact path="/" element={ <Navigate to="/Login" /> } />
+          <Route exact path="/" element={ <Navigate to="/login" /> } />
           <Route exact path="/login" element={ <Login /> } />
           <Route exact path="/register" element={ <AddUser /> } />
-          <Route exact path="/customer" element={ <Private><Customer /></Private> } />
+          <Route
+            exact
+            path="/customer/products"
+            element={ <Private><Customer /></Private> }
+          />
           <Route exact path="/admin/manage" element={ <Private><Admin /></Private> } />
           <Route exact path="/seller/orders" element={ <SellerOrders /> } />
           <Route exact path="/seller/orders/:id" element={ <SellerDetails /> } />

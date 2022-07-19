@@ -41,7 +41,7 @@ const SellerOrders = () => {
     };
 
     getSales();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (loading) return <h1>Carregando...</h1>;
 

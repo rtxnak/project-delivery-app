@@ -11,7 +11,7 @@ function Table({ users, func }) {
 
   useEffect(() => {
     setUsersFiltered(users.filter((user) => user.email !== emailLocalStorage));
-  }, [users]);
+  }, [users]);// eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <C.TableContent>
