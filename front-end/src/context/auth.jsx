@@ -42,6 +42,9 @@ export const AuthProvider = ({ children }) => {
     if (response.data.role === 'seller') {
       navigate('/seller');
     }
+    if (!response.data.role) {
+      return response.status;
+    }
   };
 
   const logOut = () => {
@@ -56,10 +59,11 @@ export const AuthProvider = ({ children }) => {
   };
   return (
     <AuthContext.Provider
-      value={ { authenticated: !!user, user, loading, login, logOut,
+      value={ {
+        authenticated: !!user, user, loading, login, logOut,
       } }
     >
-      { children }
+      {children}
     </AuthContext.Provider>
   );
 };

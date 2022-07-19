@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../context/auth';
 
@@ -7,11 +7,17 @@ export default function LoginForm() {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [invalidLogin, setInvalidLogin] = useState(false);
 
-  const handleSubmit = (e) => {
+  useEffect(() => { }, [invalidLogin]);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('submit', { email, password });
-    login(email, password);
+    const result = await login(email, password);
+    const ERRORCODE = 404;
+    if (result === ERRORCODE) {
+      setInvalidLogin(true);
+    }
   };
 
   const checkInputs = () => {
@@ -54,6 +60,15 @@ export default function LoginForm() {
             />
           </label>
         </div>
+        {invalidLogin ? (
+          <div>
+            <p
+              data-testid="common_login__element-invalid-email"
+            >
+              Login Inválido
+            </p>
+          </div>
+        ) : false}
         <div className="buttons">
           <button
             data-testid="common_login__button-login"
