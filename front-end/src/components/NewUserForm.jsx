@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { api } from '../services/api';
+import { AuthContext } from '../context/auth';
 
 export default function NewUserForm() {
+  const { login } = useContext(AuthContext);
   const [userEmail, setUserEmail] = useState('');
   const [userName, setUserName] = useState('');
   const [userPassword, setUserPassword] = useState('');
@@ -29,12 +31,13 @@ export default function NewUserForm() {
       name: userName,
       email: userEmail,
       password: userPassword,
+      role: 'customer',
     };
     try {
       const response = await api.post('/register', data);
       console.log(response);
       if (response.status === userSaved) {
-        window.location.href = '/customer/products';
+        login(userEmail, userPassword);
       }
     } catch (error) {
       setfailed(false);
@@ -100,7 +103,7 @@ export default function NewUserForm() {
             CADASTRAR
           </button>
         </div>
-        <div className="hide">
+        <div className="hide" data-testid="common_register__element-invalid_register">
           { failed ? null : <p>ERRO!!! Usuário já cadastrado</p> }
         </div>
       </form>
