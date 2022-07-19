@@ -10,7 +10,7 @@ import Private from './Private';
 
 import AddUser from '../pages/AddUser';
 import Login from '../pages/Login';
-import Customer from '../pages/Customer';
+import Customer from '../pages/CustomerProducts';
 import Admin from '../pages/Admin';
 import Seller from '../pages/Seller';
 
