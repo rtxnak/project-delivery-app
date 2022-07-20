@@ -40,7 +40,7 @@ export const AuthProvider = ({ children }) => {
       navigate('/admin/manage');
     }
     if (response.data.role === 'seller') {
-      navigate('/seller');
+      navigate('/seller/orders');
     }
     if (!response.data.role) {
       return response.status;
