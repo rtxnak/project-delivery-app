@@ -57,6 +57,8 @@ export default function ProductCard({ product }) {
     }
   };
 
+  const priceNumber = Number(priceState);
+
   return (
     <div
       className="products-card"
@@ -65,7 +67,7 @@ export default function ProductCard({ product }) {
         className="divPriceProduct"
         data-testid={ `customer_products__element-card-price-${id}` }
       >
-        {price.replace('.', ',')}
+        { priceNumber.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) }
       </div>
       <div className="divImg">
         <img
