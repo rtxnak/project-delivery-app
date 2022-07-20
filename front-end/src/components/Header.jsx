@@ -9,24 +9,22 @@ export default function Header() {
     logOut();
   };
 
-  const user = localStorage.getItem('name');
-  const role = localStorage.getItem('role');
+  const user = JSON.parse(localStorage.getItem('user'));
 
   return (
     <header id="header" className="columns">
       <div id="role" className="column">
         <NavBar
-          role={ role }
+          role={ user.role }
         />
       </div>
       <div className="column" />
       <div
         id="divUserName"
         className="column"
-        value={ user.replaceAll('"', '') }
         data-testid="customer_products__element-navbar-user-full-name"
       >
-        { user.replaceAll('"', '') }
+        { user.name }
       </div>
       <button
         id="logoutBtn"

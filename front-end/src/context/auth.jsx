@@ -21,16 +21,26 @@ export const AuthProvider = ({ children }) => {
   const login = async (email, password) => {
     const response = await createSession(email, password);
     const { name, token, role, id } = response.data;
+
+    const userObj = {
+      id,
+      name,
+      email,
+      role,
+      token,
+    };
+
+    localStorage.setItem('user', JSON.stringify(userObj));
     const loggedUser = name;
     const validToken = token;
-    const validRole = role;
-    const validId = id;
+    // const validRole = role;
+    // const validId = id;
 
-    localStorage.setItem('name', JSON.stringify(loggedUser));
-    localStorage.setItem('email', JSON.stringify(email));
-    localStorage.setItem('role', JSON.stringify(validRole));
-    localStorage.setItem('token', token);
-    localStorage.setItem('id', validId);
+    // localStorage.setItem('name', JSON.stringify(loggedUser));
+    // localStorage.setItem('email', JSON.stringify(email));
+    // localStorage.setItem('role', JSON.stringify(validRole));
+    // localStorage.setItem('token', token);
+    // localStorage.setItem('id', validId);
 
     api.defaults.headers.Authorization = `Bearer ${validToken}`;
     setUser({ loggedUser });
@@ -50,10 +60,11 @@ export const AuthProvider = ({ children }) => {
 
   const logOut = () => {
     console.log('logout');
-    localStorage.removeItem('name');
-    localStorage.removeItem('email');
-    localStorage.removeItem('role');
-    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    // localStorage.removeItem('name');
+    // localStorage.removeItem('email');
+    // localStorage.removeItem('role');
+    // localStorage.removeItem('token');
     api.defaults.headers.Authorization = null;
     setUser(null);
     navigate('/');
