@@ -25,7 +25,6 @@ export default function ProductCard({ product }) {
     if (type === 'plus') {
       const newQuantity = productQuantity + 1;
       setProductQuantity(newQuantity);
-      console.log(newQuantity);
       const item = {
         name: nameState,
         id: idState,
@@ -37,7 +36,6 @@ export default function ProductCard({ product }) {
     if (type === 'minus' && productQuantity > 0) {
       const newQuantity = productQuantity - 1;
       setProductQuantity(newQuantity);
-      console.log(newQuantity);
       const item = {
         name: nameState,
         id: idState,
@@ -56,7 +54,7 @@ export default function ProductCard({ product }) {
         className="divPriceProduct"
         data-testid={ `customer_products__element-card-price-${id}` }
       >
-        {`R$: ${price}`}
+        {price.replace('.', ',')}
       </div>
       <div className="divImg">
         <img
