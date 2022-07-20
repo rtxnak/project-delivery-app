@@ -18,7 +18,7 @@ export default function ProductCard({ product }) {
     setPrice(price);
   }, [id, name, price]);
 
-  const quantityChange = (type) => {
+  const quantityChange = (type, e) => {
     setName(name);
     setId(id);
     setPrice(price);
@@ -35,6 +35,17 @@ export default function ProductCard({ product }) {
     }
     if (type === 'minus' && productQuantity > 0) {
       const newQuantity = productQuantity - 1;
+      setProductQuantity(newQuantity);
+      const item = {
+        name: nameState,
+        id: idState,
+        price: priceState,
+        quantity: newQuantity,
+      };
+      saveProductOnCart(item);
+    }
+    if (type === 'manual') {
+      const newQuantity = Number(e.target.value);
       setProductQuantity(newQuantity);
       const item = {
         name: nameState,
@@ -83,8 +94,7 @@ export default function ProductCard({ product }) {
           </button>
           <input
             className="inputQnt"
-            // type="number"
-            readOnly
+            onChange={ (e) => { quantityChange('manual', e); } }
             value={ productQuantity }
             data-testid={ `customer_products__input-card-quantity-${id}` }
             min="0"
