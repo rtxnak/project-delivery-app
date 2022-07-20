@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../context/auth';
+import NavBar from './NavBar';
 
 export default function Header() {
   const { logOut } = useContext(AuthContext);
@@ -8,25 +9,32 @@ export default function Header() {
     logOut();
   };
 
-  const user = localStorage.getItem('name');
+  const user = JSON.parse(localStorage.getItem('user'));
 
   return (
-    <header className="header">
+    <header id="header" className="columns">
+      <div id="role" className="column">
+        <NavBar
+          role={ user.role }
+        />
+      </div>
+      <div className="column" />
+      <div
+        id="divUserName"
+        className="column"
+        data-testid="customer_products__element-navbar-user-full-name"
+      >
+        { user.name }
+      </div>
       <button
-        className="logoutBtn"
+        id="logoutBtn"
+        className="column is-one-fifth"
         type="button"
         onClick={ handleLogout }
         data-testid="customer_products__element-navbar-link-logout"
       >
         Sair
       </button>
-      <div
-        className="divUserName"
-        value={ user }
-        data-testid="customer_products__element-navbar-user-full-name"
-      >
-        {user}
-      </div>
     </header>
   );
 }
