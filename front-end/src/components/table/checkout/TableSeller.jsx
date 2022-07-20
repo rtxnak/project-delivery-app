@@ -1,10 +1,9 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { requestCreateSale } from '../../../services/request';
+import { requestCreateSale } from '../../../services/requestAPI';
 import context from '../../../context';
 import CheckoutSelect from '../../select/CheckoutSelect';
 import CheckoutInput from '../../input/CheckoutInput';
-// test push
 
 function TableSeller() {
   const { sellers } = useContext(context);

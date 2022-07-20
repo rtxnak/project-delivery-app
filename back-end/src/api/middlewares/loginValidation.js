@@ -33,7 +33,7 @@ const isValidEmail = async (req, res, next) => {
     return res.status(404).json({ message: '"email" is required' });
   }
 
-  const pattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+  const pattern = /\S+@\S+\.\S+/;
   const validateEmail = (e) => e.match(pattern);
 
   if (!validateEmail(email)) {

@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Link as ReactLink } from 'react-router-dom';
 import { Box, Flex, Link } from '@chakra-ui/react';
 import { requestOrder } from '../../../services/requestAPI';
-import RequestOrderBox from '../../box/orders/RequestOrderBox';
-import StatusOrderbox from '../../box/orders/StatusOrderBox';
+import RequestOrderBox from '../../boxes/orders/RequestOrderBox';
+import StatusOrderbox from '../../boxes/orders/StatusOrderBox';
 import {
   testOrderId,
   testOrderStatus,
