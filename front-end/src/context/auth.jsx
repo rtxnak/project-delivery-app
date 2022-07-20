@@ -8,6 +8,7 @@ export const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [cartItens, setCartItens] = useState([]);
 
   useEffect(() => {
     const recoveredUser = localStorage.getItem('user');
@@ -57,10 +58,16 @@ export const AuthProvider = ({ children }) => {
     setUser(null);
     navigate('/');
   };
+
+  const saveProductOnCart = (item) => {
+    const itemFiltered = cartItens.filter(({ id }) => id !== item.id);
+    setCartItens([...itemFiltered, item]);
+  };
+
   return (
     <AuthContext.Provider
       value={ {
-        authenticated: !!user, user, loading, login, logOut,
+        authenticated: !!user, user, loading, login, logOut, saveProductOnCart,
       } }
     >
       {children}
