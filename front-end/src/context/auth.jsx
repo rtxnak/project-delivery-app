@@ -9,6 +9,7 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [cartItens, setCartItens] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
     const recoveredUser = localStorage.getItem('user');
@@ -17,6 +18,12 @@ export const AuthProvider = ({ children }) => {
     }
     setLoading(false);
   }, []);
+
+  useEffect(() => {
+    const newTotalPrice = cartItens.reduce((acc, curr) => (
+      acc + Number(curr.quantity) * Number(curr.price)), 0);
+    setTotalPrice(newTotalPrice);
+  }, [cartItens]);
 
   const login = async (email, password) => {
     const response = await createSession(email, password);
@@ -78,7 +85,13 @@ export const AuthProvider = ({ children }) => {
   return (
     <AuthContext.Provider
       value={ {
-        authenticated: !!user, user, loading, login, logOut, saveProductOnCart,
+        authenticated: !!user,
+        user,
+        loading,
+        login,
+        logOut,
+        saveProductOnCart,
+        totalPrice,
       } }
     >
       {children}
