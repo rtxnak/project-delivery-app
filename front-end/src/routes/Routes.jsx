@@ -13,7 +13,8 @@ import Login from '../pages/Login';
 import Customer from '../pages/CustomerProducts';
 import Checkout from '../pages/CustomerCheckout';
 import Admin from '../pages/Admin';
-import Seller from '../pages/Seller';
+import OrderSeller from '../pages/OrderSeller';
+// import SellerDetails from '../pages/SellerDetails';
 
 export default function Rotas() {
   return (
@@ -34,7 +35,8 @@ export default function Rotas() {
             element={ <Private><Checkout /></Private> }
           />
           <Route exact path="/admin/manage" element={ <Private><Admin /></Private> } />
-          <Route exact path="/seller" element={ <Private><Seller /></Private> } />
+          <Route exact path="/seller/orders" element={ <OrderSeller /> } />
+          {/* <Route exact path="/seller/orders/:id" element={ <SellerDetails /> } /> */}
         </Routes>
       </AuthProvider>
     </Router>

@@ -2,15 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-export default function NavBar({ role }) {
+export default function NavBar({ title, testId, link }) {
   return (
-    <Link to="/customer/products/orders">
-      { role }
-    </Link>
+    <div id="nav-customer">
+      <Link to={ link }>
+        <button
+          type="button"
+          data-testid={ testId }
+        >
+          { title }
+        </button>
+      </Link>
+    </div>
   );
 }
 
 NavBar.propTypes = {
-  role: PropTypes.string,
-  // path: PropTypes.string,
+  title: PropTypes.string,
+  testId: PropTypes.string,
+  link: PropTypes.string,
 }.isRequired;
