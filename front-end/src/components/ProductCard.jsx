@@ -89,10 +89,10 @@ export default function ProductCard({ product }) {
           <button
             className="button is-primary"
             type="button"
-            onClick={ () => { quantityChange('plus'); } }
-            data-testid={ `customer_products__button-card-add-item-${id}` }
+            onClick={ () => { quantityChange('minus'); } }
+            data-testid={ `customer_products__button-card-rm-item-${id}` }
           >
-            +
+            -
           </button>
           <input
             className="inputQnt"
@@ -104,10 +104,10 @@ export default function ProductCard({ product }) {
           <button
             className="button is-primary"
             type="button"
-            onClick={ () => { quantityChange('minus'); } }
-            data-testid={ `customer_products__button-card-rm-item-${id}` }
+            onClick={ () => { quantityChange('plus'); } }
+            data-testid={ `customer_products__button-card-add-item-${id}` }
           >
-            -
+            +
           </button>
         </div>
       </div>

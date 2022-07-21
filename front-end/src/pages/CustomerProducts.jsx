@@ -42,13 +42,14 @@ export default function Customer() {
           <ProductCard key={ product.id } product={ product } />
         ))}
       </div>
-      <div>
+      <div id="cart-shop">
         <button
           disabled={ buttonDisabled }
           type="button"
           data-testid="customer_products__button-cart"
           onClick={ navigateToCheckout }
         >
+          <img aria-label="cart-shop" src="http://localhost:3001/images/cart-shop.jpg" />
           <span data-testid="customer_products__checkout-bottom-value">
             {totalPrice.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
           </span>
