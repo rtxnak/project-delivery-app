@@ -13,12 +13,41 @@ export default function Header() {
 
   return (
     <header id="header" className="columns">
-      <div id="role" className="column">
-        <NavBar
-          role={ user.role }
-        />
+      <div id="products" className="column">
+        { user.role === 'customer' && (
+          <NavBar
+            title="PRODUTOS"
+            testId="customer_products__element-navbar-link-products"
+            link="/customer/products"
+          />
+        ) }
+        { user.role === 'seller' && (
+          <NavBar
+            title="PEDIDOS"
+            testId="seller__element-navbar-link-orders"
+            link="/seller/orders"
+          />
+        ) }
+        { user.role === 'administrator' && (
+          <NavBar
+            title="GERENCIAR USUÁRIOS"
+            testId="administrator__element-navbar-link-orders"
+            link="/administrator/orders"
+          />
+        ) }
       </div>
-      <div className="column" />
+      <div
+        className="column"
+        id="cart"
+      >
+        { user.role === 'customer' && (
+          <NavBar
+            title="MEUS PEDIDOS"
+            testId="customer_products__element-navbar-link-orders"
+            link="/customer/orders"
+          />
+        ) }
+      </div>
       <div
         id="divUserName"
         className="column"
