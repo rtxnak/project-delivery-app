@@ -12,3 +12,12 @@ export const createSession = async (email, password) => {
     return error.response;
   }
 };
+
+export const getProducts = async () => {
+  try {
+    const response = await api.get('/customer/products');
+    return response;
+  } catch (error) {
+    return error.response;
+  }
+};
