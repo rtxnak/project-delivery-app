@@ -1,12 +1,12 @@
 import React from 'react';
 import OrderCard from './cards/orders/OrdersCard';
-import NavBar from './navBar/NavBar';
+import Header from './Header';
 
 function OrderForms() {
   return (
     <div>
       <header>
-        <NavBar />
+        <Header />
       </header>
       <OrderCard />
     </div>

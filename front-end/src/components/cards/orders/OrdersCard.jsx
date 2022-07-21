@@ -13,78 +13,81 @@ import {
 } from '../../../utils/OrderTestIds';
 
 function OrderCard() {
-  const [orders, setOrders] = useState([]);
+  const [orders, setOrders] = useState();
   const [footer, setFooter] = useState(true);
-  const { token, role } = JSON.parse(localStorage.getItem('user'));
+  const { id, role } = JSON.parse(localStorage.getItem('user'));
 
   useEffect(() => {
     const requestApi = async () => {
       const request = await requestOrder(
-        '/sales', token,
+        'seller/orders', id,
       );
-      setOrders(request);
+      const { salesResult } = request;
+      setOrders(salesResult);
       if (role === 'seller') {
         setFooter(false);
       }
     };
     requestApi();
-  }, [role, token]);
+  }, [id, role]);
 
   return (
-    orders.map((
-      {
-        id: numeroDoPedido,
-        totalPrice: precoTotal,
-        deliveryAddress: enderecoDeEntrega,
-        deliveryNumber: numeroDoEndereco,
-        saleDate: dataDaVenda,
-        status: statusDeVenda,
-      },
-    ) => (
-      <Box
-        key={ numeroDoPedido }
-        maxWidth="20em"
-        margin="2em"
-        border="0.2em solid"
-        borderRadius="10px"
-        borderColor="black.400"
-      >
-        <Link
-          as={ ReactLink }
-          to={ `/${role}/orders/${numeroDoPedido}` }
-
+    <div>
+      {orders && orders.map((
+        {
+          id: numeroDoPedido,
+          totalPrice: precoTotal,
+          deliveryAddress: enderecoDeEntrega,
+          deliveryNumber: numeroDoEndereco,
+          saleDate: dataDaVenda,
+          status: statusDeVenda,
+        },
+      ) => (
+        <Box
+          key={ numeroDoPedido }
+          maxWidth="20em"
+          margin="2em"
+          border="0.2em solid"
+          borderRadius="10px"
+          borderColor="black.400"
         >
-          <Flex>
-            <RequestOrderBox
-              role={ role }
-              conteudo={ { numeroDoPedido } }
-              testId={ { testOrderId } }
-            />
-            <Flex className="infoPedidos">
-              <StatusOrderbox
+          <Link
+            as={ ReactLink }
+            to={ `/${role}/orders/${numeroDoPedido}` }
+          >
+            <Flex>
+              <RequestOrderBox
                 role={ role }
-                conteudo={ {
-                  numeroDoPedido,
-                  precoTotal,
-                  enderecoDeEntrega,
-                  numeroDoEndereco,
-                  dataDaVenda,
-                  statusDeVenda,
-                } }
-                testId={ {
-                  testOrderId,
-                  testOrderStatus,
-                  testOrderDate,
-                  testOrderTotalPrice,
-                  testOrderAdress,
-                } }
-                haveFooter={ footer }
+                conteudo={ { numeroDoPedido } }
+                testId={ { testOrderId } }
               />
+              <Flex className="infoPedidos">
+                <StatusOrderbox
+                  role={ role }
+                  conteudo={ {
+                    numeroDoPedido,
+                    precoTotal,
+                    enderecoDeEntrega,
+                    numeroDoEndereco,
+                    dataDaVenda,
+                    statusDeVenda,
+                  } }
+                  testId={ {
+                    testOrderId,
+                    testOrderStatus,
+                    testOrderDate,
+                    testOrderTotalPrice,
+                    testOrderAdress,
+                  } }
+                  haveFooter={ footer }
+                />
+              </Flex>
             </Flex>
-          </Flex>
-        </Link>
-      </Box>
-    )));
+          </Link>
+        </Box>
+      ))}
+    </div>
+  );
 }
 
 export default OrderCard;
