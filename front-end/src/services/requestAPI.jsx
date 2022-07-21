@@ -38,14 +38,9 @@ export const requestProdutos = async (url) => {
   return data;
 };
 
-export const requestOrder = async (url, token) => {
+export const requestOrder = async (url, sellerId) => {
   try {
-    const { data } = await api.get(
-      url,
-      {
-        headers: { Authorization: token },
-      },
-    );
+    const { data } = await api.post(url, { sellerId });
     return data;
   } catch (error) {
     console.log(error);
