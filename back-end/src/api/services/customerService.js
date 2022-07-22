@@ -29,6 +29,7 @@ async function create(saleInformation) {
     
     await salesProducts.create({ productId, saleId, quantity });
   });
+  return saleId;
 }
 
 async function getById(saleId) {
