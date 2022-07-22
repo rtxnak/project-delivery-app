@@ -15,84 +15,95 @@ function Table({
   fullPrice,
 }) {
   const [isRender, setIsRender] = useState(false);
-  const localtion = useLocation();
+  const location = useLocation();
 
   useEffect(() => {
-    if (localtion.pathname === '/customer/checkout') { setIsRender(true); }
-  }, [localtion.pathname]);
+    if (location.pathname === '/customer/checkout') { setIsRender(true); }
+  }, [location.pathname]);
 
   return (
-    <div>
-      <table>
-        <thead>
+    <div className="container">
+      <table className="table">
+        <thead className="thead">
           <tr>
             <th>Item</th>
             <th>Descrição</th>
             <th>quantidade</th>
             <th>Valor unitário</th>
             <th>Sub-total</th>
-            { isRender && <th> Remover Item</th> }
+            {isRender && <th> Remover Item</th>}
           </tr>
         </thead>
-        <tbody>
+        <tbody className="tbody">
           {
             productsInStore.map(({ id, name, price, quantity }, index) => {
               const totalPrice = Number(price) * quantity;
               return (
-                <tr key={ id }>
+                <tr
+                  className="tr"
+                  key={ id }
+                >
                   <td
+                    className="td"
                     data-testid={
                       `${idIndex}${index}`
                     }
                   >
-                    { index + 1 }
+                    {index + 1}
                   </td>
                   <td
                     data-testid={
                       `${idName}${index}`
                     }
                   >
-                    { name }
+                    {name}
                   </td>
                   <td
+                    className="qnt-itens"
                     data-testid={
                       `${idQuantity}${index}`
                     }
                   >
-                    { quantity }
+                    {quantity}
                   </td>
                   <td
+                    className="unit-total"
                     data-testid={
                       `${idPrice}${index}`
                     }
                   >
-                    { Number(price).toFixed(2).toString().replace('.', ',') }
+                    {Number(price).toLocaleString('pt-BR',
+                      { style: 'currency', currency: 'BRL' })}
                   </td>
                   <td
+                    className="subtotal"
                     data-testid={
                       `${idSubTotal}${index}`
                     }
                   >
-                    { totalPrice.toFixed(2).toString().replace('.', ',') }
+                    {totalPrice.toLocaleString('pt-BR',
+                      { style: 'currency', currency: 'BRL' })}
                   </td>
-                  {
-                    isRender
+                  <td id="td">
+                    {
+                      isRender
                     && <ButtonCheckout
                       id={ id }
                       removeItenInListProducts={ removeItenInListProducts }
                       index={ index }
                     />
-                  }
-
+                    }
+                  </td>
                 </tr>
               );
             })
           }
         </tbody>
       </table>
-      <p data-testid={ idTotalPrice }>
+      <p data-testid={ idTotalPrice } className="total-price">
         {
-          fullPrice.toFixed(2).toString().replace('.', ',')
+          `Total: ${fullPrice.toLocaleString('pt-BR',
+            { style: 'currency', currency: 'BRL' })}`
         }
       </p>
     </div>

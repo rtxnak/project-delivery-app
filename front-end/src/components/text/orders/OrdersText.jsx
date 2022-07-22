@@ -1,15 +1,14 @@
 import React from 'react';
-import { Text } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 
 function OrdersText({ role, testId, conteudo, orderId }) {
   return (
-    <Text
-      align="center"
+    <h1
+      className="teste"
       data-testid={ `${role}${testId}${orderId}` }
     >
       { conteudo }
-    </Text>
+    </h1>
   );
 }
 

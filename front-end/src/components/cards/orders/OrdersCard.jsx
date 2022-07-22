@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Link as ReactLink } from 'react-router-dom';
-import { Box, Flex, Link } from '@chakra-ui/react';
 import { requestOrder } from '../../../services/requestAPI';
 import RequestOrderBox from '../../boxes/orders/RequestOrderBox';
 import StatusOrderbox from '../../boxes/orders/StatusOrderBox';
@@ -43,25 +42,20 @@ function OrderCard() {
           status: statusDeVenda,
         },
       ) => (
-        <Box
+        <div
           key={ numeroDoPedido }
-          maxWidth="20em"
-          margin="2em"
-          border="0.2em solid"
-          borderRadius="10px"
-          borderColor="black.400"
         >
-          <Link
+          <div
             as={ ReactLink }
             to={ `/${role}/orders/${numeroDoPedido}` }
           >
-            <Flex>
+            <div>
               <RequestOrderBox
                 role={ role }
                 conteudo={ { numeroDoPedido } }
                 testId={ { testOrderId } }
               />
-              <Flex className="infoPedidos">
+              <div className="infoPedidos">
                 <StatusOrderbox
                   role={ role }
                   conteudo={ {
@@ -81,10 +75,10 @@ function OrderCard() {
                   } }
                   haveFooter={ footer }
                 />
-              </Flex>
-            </Flex>
-          </Link>
-        </Box>
+              </div>
+            </div>
+          </div>
+        </div>
       ))}
     </div>
   );
