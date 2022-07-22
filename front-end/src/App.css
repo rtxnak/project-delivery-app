@@ -209,18 +209,19 @@ img {
 
 #cart-shop {
   flex-wrap: wrap;
-  height: 89px;
-  width: 89x;
+  max-height: 85px;
+  max-width: 85x;
   position: fixed;
   bottom: 40px;
   right: 30px;
   border-radius: 100px;
   background-color: #036B52;
+
 }
 
 #cart-shop button {
-  width: 85px;
-  flex-wrap: wrap;
+  max-width: 85px;
+  max-height: 85px;
   display: flex;
   flex-direction: column;
   font-size: large;
@@ -232,6 +233,8 @@ img {
 
 #cart-shop span {
   margin: -10px;
+  margin-top: 25px;
+  padding-left: 8px;
   font-size: large;
   color: black;
   font-weight: bolder;
@@ -239,9 +242,217 @@ img {
 
 #cart-shop img {
   border-radius: 100px;
-  height: 100px;
-  width: 100px;
-  padding: 10px;
+  max-height: 70px;
+  max-width: 70px;
+  padding-right: 8px;
+  padding-top: 10px;
 }
 
+.td {
+  background-color: #2FC18C;
+  border: 0;
+  border-radius: 10px 0px 0px 10px;
+  color: white;
+  font-weight: bold;
+  font-size: x-large;
+}
+
+#td {
+  height: 50px;
+  background-color: #2FC18C;
+  margin-right: 50px;
+  width: 100px;
+  border: 0;
+  border-radius: 0px 10px 10px 0px;
+  color: white;
+  font-weight: bold;
+  font-size: x-large;
+}
+
+#btn-checkout {
+  background-color: #2FC18C;
+  outline:none;
+  box-shadow: 0 0 0 0;
+  font-size: x-large;
+  align-items: center;
+  color: white;
+  display: flex;
+  float: right;
+  font-weight: bold;
+  justify-content: center;
+  justify-self: right;
+  position: relative;
+  border: transparent;
+}
+
+.thead {
+  text-align: center;
+}
+
+.tr {
+  height: 50px;
+  justify-items: center;
+  align-content: center;
+  border: 0;
+  font-weight: bold;
+  font-size: x-large;
+  border-collapse: collapse;
+  border-spacing: 0 5px;
+  text-align: center;
+}
+
+.table {
+  margin: 40px;
+  border: none;
+  border-collapse: separate;
+  border-spacing: 0 1em;
+}
+
+.content h1 {
+  margin: 40px;
+}
+
+.total-price {
+  float: right;
+  display: flex;
+  color: white;
+  font-weight: bold;
+  font-size: xx-large;
+  top: 2em;
+  height: 59px;
+  align-items: center;
+  justify-content: center;
+  width: 370px;
+  border-radius: 0.5em;
+  border-color: #036B52;
+  background-color: #036B52;
+}
+
+.subtotal {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  font-size: x-large;
+  background-color: #7B61FF;
+  color: white;
+  border: 0;
+  justify-content: center;
+  font-weight: bolder;  
+}
+
+.unit-total {
+  margin: 0;
+  position: relative;
+  height: 80px;
+  align-items: center;
+  font-size: x-large;
+  background-color: #421981;
+  color: white;
+  border: 0;
+  justify-content: center;
+  font-weight: bolder;  
+}
+
+.qnt-itens {
+  position: relative;
+  height: 80px;
+  align-items: center;
+  font-size: x-large;
+  background-color: #036B52;
+  color: white;
+  border: 0;
+  justify-content: center;
+  font-weight: bolder;  
+}
+
+.container {
+  margin: 0px;
+}
+
+.content h2 {
+  margin-left: 40px;
+}
+
+#p-vendedora {
+  margin-left: 40px;
+  width: 350px;
+}
+
+#address {
+  margin-left: 40px;
+  width: 400px;
+}
+
+#numberAddress {
+  margin-left: 40px;
+  width: 150px;
+}
+
+.order-card {
+  min-width: 600px;
+  max-width: 600px;
+  margin: 40px;
+  border: solid 2px gray;
+  border-radius: 5px;
+  font-weight: bold;
+  color: black;
+}
+
+.div-pedido {
+  max-width: 100px;
+  height: 200px;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  color: black;
+}
+
+.div-pedido h1 {
+  font-size: xx-large;
+}
+
+.order-box {
+  flex-direction: row;
+  max-width: 400px;
+  display: flex;
+  max-height: 200px;
+  flex-wrap: wrap;
+}
+
+.div-status {
+  height: 150px;
+  margin-top: -175px;
+  margin-left: 100px;
+  position: relative;
+  float: right;
+  display: flex;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  width: 200px;
+  font-size: xx-large;
+}
+
+.infoPedidos {
+  margin-top: -175px;
+  margin-left: 300px;
+  position: relative;
+  background-color: darkgray;
+  align-items: center;
+  color: white;
+  font-size: x-large;
+}
+
+#container {
+  flex-direction: row;
+  margin: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";

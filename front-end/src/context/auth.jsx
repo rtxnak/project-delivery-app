@@ -40,14 +40,6 @@ export const AuthProvider = ({ children }) => {
     localStorage.setItem('user', JSON.stringify(userObj));
     const loggedUser = name;
     const validToken = token;
-    // const validRole = role;
-    // const validId = id;
-
-    // localStorage.setItem('name', JSON.stringify(loggedUser));
-    // localStorage.setItem('email', JSON.stringify(email));
-    // localStorage.setItem('role', JSON.stringify(validRole));
-    // localStorage.setItem('token', token);
-    // localStorage.setItem('id', validId);
 
     api.defaults.headers.Authorization = `Bearer ${validToken}`;
     setUser({ loggedUser });
@@ -68,10 +60,6 @@ export const AuthProvider = ({ children }) => {
   const logOut = () => {
     console.log('logout');
     localStorage.removeItem('user');
-    // localStorage.removeItem('name');
-    // localStorage.removeItem('email');
-    // localStorage.removeItem('role');
-    // localStorage.removeItem('token');
     api.defaults.headers.Authorization = null;
     setUser(null);
     navigate('/');
@@ -92,6 +80,8 @@ export const AuthProvider = ({ children }) => {
         logOut,
         saveProductOnCart,
         totalPrice,
+        cartItens,
+        setCartItens,
       } }
     >
       {children}

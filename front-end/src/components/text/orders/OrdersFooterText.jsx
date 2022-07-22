@@ -1,14 +1,13 @@
 import React from 'react';
-import { Text } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 
 function OrdersFooterText({ role, conteudo, testId, orderId }) {
   return (
-    <Text
+    <div
       data-testid={ `${role}${testId}${orderId}` }
     >
       { `${conteudo.enderecoDeEntrega},${conteudo.numeroDoEndereco}` }
-    </Text>
+    </div>
   );
 }
 
