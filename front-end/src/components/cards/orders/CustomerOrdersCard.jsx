@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link as ReactLink } from 'react-router-dom';
-import { requestOrder } from '../../../services/requestAPI';
+import { requestCustomerOrder } from '../../../services/requestAPI';
 import RequestOrderBox from '../../boxes/orders/RequestOrderBox';
 import StatusOrderbox from '../../boxes/orders/StatusOrderBox';
 import {
@@ -11,15 +11,15 @@ import {
   testOrderAdress,
 } from '../../../utils/OrderTestIds';
 
-function OrderCard() {
+function CustomerOrdersCard() {
   const [orders, setOrders] = useState();
   const [footer, setFooter] = useState(true);
   const { id, role } = JSON.parse(localStorage.getItem('user'));
 
   useEffect(() => {
     const requestApi = async () => {
-      const request = await requestOrder(
-        'seller/orders', id,
+      const request = await requestCustomerOrder(
+        'customer/checkout/orders', id,
       );
       const { salesResult } = request;
       setOrders(salesResult);
@@ -31,7 +31,9 @@ function OrderCard() {
   }, [id, role]);
 
   return (
-    <div>
+    <div
+      id="container"
+    >
       {orders && orders.map((
         {
           id: numeroDoPedido,
@@ -43,11 +45,13 @@ function OrderCard() {
         },
       ) => (
         <div
+          className="order-card"
           key={ numeroDoPedido }
         >
-          <div
+          <a
             as={ ReactLink }
-            to={ `/${role}/orders/${numeroDoPedido}` }
+            href={ `/${role}/orders/${numeroDoPedido}` }
+            className="order-box"
           >
             <div>
               <RequestOrderBox
@@ -55,7 +59,7 @@ function OrderCard() {
                 conteudo={ { numeroDoPedido } }
                 testId={ { testOrderId } }
               />
-              <div className="infoPedidos">
+              <div>
                 <StatusOrderbox
                   role={ role }
                   conteudo={ {
@@ -77,11 +81,11 @@ function OrderCard() {
                 />
               </div>
             </div>
-          </div>
+          </a>
         </div>
       ))}
     </div>
   );
 }
 
-export default OrderCard;
+export default CustomerOrdersCard;

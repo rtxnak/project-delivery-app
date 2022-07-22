@@ -1,15 +1,18 @@
 import React, { useState, useEffect, useContext } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../context/auth';
 
-export default function LoginForm() {
+export default function LoginForm({ onLoginRedirection }) {
   const { login } = useContext(AuthContext);
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [invalidLogin, setInvalidLogin] = useState(false);
-
-  useEffect(() => { }, [invalidLogin]);
+  const recoveredUser = JSON.parse(localStorage.getItem('user'));
+  useEffect(() => {
+    onLoginRedirection(recoveredUser);
+  }, [invalidLogin, onLoginRedirection, recoveredUser]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -96,3 +99,7 @@ export default function LoginForm() {
     </div>
   );
 }
+
+LoginForm.propTypes = {
+  onLoginRedirection: PropTypes.func.isRequired,
+};

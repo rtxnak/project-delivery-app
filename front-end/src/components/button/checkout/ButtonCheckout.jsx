@@ -5,10 +5,11 @@ function ButtonCheckout({ removeItenInListProducts, id, index }) {
   return (
     <td>
       <button
+        id="btn-checkout"
         type="button"
         data-testid={ `customer_checkout__element-order-table-remove-${index}` }
         value={ id }
-        onClick={ (e) => removeItenInListProducts(e.target) }
+        onClick={ (e) => removeItenInListProducts(e.target.value) }
       >
         Remover
       </button>

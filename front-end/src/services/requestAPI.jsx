@@ -48,6 +48,16 @@ export const requestOrder = async (url, sellerId) => {
   }
 };
 
+export const requestCustomerOrder = async (url, userId) => {
+  try {
+    const { data } = await api.post(url, { userId });
+    return data;
+  } catch (error) {
+    console.log(error);
+    return error;
+  }
+};
+
 export const requestSellers = async (url) => {
   const { data } = await api.get(url);
   return data;
