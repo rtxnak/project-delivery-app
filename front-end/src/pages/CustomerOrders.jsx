@@ -3,7 +3,9 @@ import OrderForms from '../components/OrderForm';
 
 function CustomerOrders() {
   return (
-    <OrderForms />
+    <OrderForms
+      className="content"
+    />
   );
 }
 

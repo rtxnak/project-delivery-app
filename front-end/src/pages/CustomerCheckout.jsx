@@ -40,8 +40,11 @@ export default function Checkout() {
   return (
     <div>
       <Header />
-      <div className="content">
-        <h1>Finalizar Pedido</h1>
+      <h1 id="h1-detail">Finalizar Pedido</h1>
+      <div
+        className="content"
+        id="detail-content"
+      >
         <Table
           productsInStore={ cartItens }
           removeItenInListProducts={ removeItemFromCart }
@@ -54,8 +57,11 @@ export default function Checkout() {
           fullPrice={ totalPrice }
         />
       </div>
-      <div className="content">
-        <h1>Detalhes e Endereço para Entrega</h1>
+      <h1 id="h1-detail">Detalhes e Endereço para Entrega</h1>
+      <div
+        className="content"
+        id="detail-content-checkout"
+      >
         {sellers && sellerSelected
           && <CheckoutInput
             allSellers={ sellers }

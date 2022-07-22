@@ -32,7 +32,8 @@ function CustomerOrdersCard() {
 
   return (
     <div
-      id="container"
+      className="columns"
+      id="detail-content"
     >
       {orders && orders.map((
         {
@@ -45,21 +46,25 @@ function CustomerOrdersCard() {
         },
       ) => (
         <div
-          className="order-card"
+          className="column"
+          id="col-order-detail"
           key={ numeroDoPedido }
         >
           <a
+            className="columns"
             as={ ReactLink }
             href={ `/${role}/orders/${numeroDoPedido}` }
-            className="order-box"
           >
-            <div>
+            <div
+              className="columns"
+              id="col-wrap"
+            >
               <RequestOrderBox
                 role={ role }
                 conteudo={ { numeroDoPedido } }
                 testId={ { testOrderId } }
               />
-              <div>
+              <div className="column">
                 <StatusOrderbox
                   role={ role }
                   conteudo={ {

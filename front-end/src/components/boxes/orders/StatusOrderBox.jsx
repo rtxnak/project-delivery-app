@@ -20,10 +20,11 @@ function StatusOrderbox({ role, conteudo, testId, haveFooter }) {
   };
 
   return (
-    <div className="teste">
+    <div>
       <div>
         <div
-          className="div-status"
+          className="column"
+          id="col-order-status"
           style={ { backgroundColor: handleBackGround() } }
         >
           <OrderText
@@ -33,15 +34,24 @@ function StatusOrderbox({ role, conteudo, testId, haveFooter }) {
             orderId={ conteudo.numeroDoPedido }
           />
         </div>
-        <div>
+        <div
+          className="column"
+          id="col-order-num"
+        >
           <OrderText
             role={ role }
             conteudo={ new Date(conteudo.dataDaVenda).toLocaleDateString('pt-BR') }
             testId={ testId.testOrderDate }
             orderId={ conteudo.numeroDoPedido }
           />
-          <div>
-            <div className="infoPedidos">
+          <div
+            className="column"
+            id="col-value"
+          >
+            <div
+              className="column"
+              id="col-value"
+            >
               Valor:
             </div>
             <OrderText
