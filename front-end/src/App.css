@@ -57,7 +57,7 @@ img {
   margin: 0;
   background-color: #036B52;
   display: flex;
-  Width: 100%;
+  Width: 100vw;
   Height: 100px;
 }
 
@@ -455,4 +455,177 @@ img {
   flex-wrap: wrap;
   justify-content: center;
 }
+
+.btn-checkout {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  font-weight: bold;
+  height: 59px;
+  width: 370px;
+  border-radius: 0.5em;
+  border-color: #036B52;
+  background-color: #036B52;
+  color: white;
+  font-size: x-large;
+  margin-top: 20px;
+  margin-left: 35vw;
+}
+
+#btn-delivery {
+  height: 50px;
+  width: 100px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  border-radius: 0.5em;
+  border-color: #036B52;
+  background-color: #036B52;
+  color: white;
+  font-size: large; 
+}
+
+#header-detail {
+  font-size: large;
+  font-weight: bold;
+  padding: 10px;
+  max-height: 100px;
+  background-color: #e9e9e9;
+  margin: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#detail-content {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+#h1-detail {
+  margin: 40px;
+  font-size: xx-large;
+  font-weight: bolder;
+}
+
+#status-detail {
+  margin: 10px;
+  height: 50px;
+  width: 100px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  border-radius: 0.5em;
+  border-color: #2FC18C;
+  background-color: #2FC18C;
+  color: white;
+  font-size: large; 
+  font-weight: bolder;
+}
+
+#detail-content-checkout {
+  align-content: center;
+  border: solid 1px gray;
+  display: flex;
+  padding: 30px;
+}
+
+#col-order-detail {
+  width: fit-content;
+  background-color: rgb(211, 198, 198);
+  display: flex;
+  flex-direction: row;
+  border: solid 2px gray;
+  border-radius: 5px;
+  margin: 20px;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+#col-order-inside {
+  display: flex;
+  flex-direction: row;
+  border: solid 2px black;
+}
+
+#col-order-num {
+  height: 100%;
+  font-size: larger;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  max-width: 100px;
+  color: black;
+  float: right;
+}
+
+#col-order-status {
+  width: 100px;
+  font-size: larger;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  max-height: 200px;
+  color: black;
+  border-radius: 5px;
+  float: right;
+  height:max-content;
+  padding: 20px;
+  margin: 40px;
+}
+
+#col-order-status-out{
+  height:fit-content;
+  width: 100px;
+  font-size: larger;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  max-height: 200px;
+  color: black;
+  border-radius: 5px;
+  float: right;
+}
+
+#detail-content-box {
+  border: solid 1px gray;
+  display: flex;
+  flex-direction: row;
+  padding: 30px;
+}
+
+#col-total {
+  display: flex;
+  flex-direction: row;
+  max-width: 200px;
+}
+
+#col-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#col-value {
+  width: 100px;
+  font-size: larger;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  max-height: 200px;
+  color: black;
+  border-radius: 5px;
+}
+
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
