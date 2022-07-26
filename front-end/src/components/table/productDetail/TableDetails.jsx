@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Table from '../products/Table';
+import Table from '../Table';
 
 function DetailTable({ carrinho }) {
   const productsInStore = carrinho.products;

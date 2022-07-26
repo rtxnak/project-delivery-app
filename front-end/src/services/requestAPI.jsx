@@ -89,3 +89,15 @@ export const requestOrderDetails = async (url, token) => {
   }
 };
 
+export const changeStatusOrder = async (url, body, token) => {
+  try {
+    const response = await api.patch(url, body, {
+      headers: {
+        Authorization: `${token}`,
+      },
+    });
+    return response;
+  } catch (error) {
+    return error.response;
+  }
+};
