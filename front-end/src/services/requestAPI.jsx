@@ -75,3 +75,17 @@ export const requestCreateSale = async (url, body, token) => {
     return error.response;
   }
 };
+
+export const requestOrderDetails = async (url, token) => {
+  try {
+    const response = await api.get(url, {
+      headers: {
+        Authorization: `${token}`,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    return error.response;
+  }
+};
+
