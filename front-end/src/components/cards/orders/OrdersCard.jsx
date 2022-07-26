@@ -31,7 +31,10 @@ function OrderCard() {
   }, [id, role]);
 
   return (
-    <div>
+    <div
+      className="content"
+      id="detail-content"
+    >
       {orders && orders.map((
         {
           id: numeroDoPedido,
@@ -45,9 +48,10 @@ function OrderCard() {
         <div
           key={ numeroDoPedido }
         >
-          <div
+          <a
+            className="column"
             as={ ReactLink }
-            to={ `/${role}/orders/${numeroDoPedido}` }
+            href={ `/${role}/orders/${numeroDoPedido}` }
           >
             <div>
               <RequestOrderBox
@@ -55,7 +59,10 @@ function OrderCard() {
                 conteudo={ { numeroDoPedido } }
                 testId={ { testOrderId } }
               />
-              <div className="infoPedidos">
+              <div
+                className="column"
+                id="col-order-inside"
+              >
                 <StatusOrderbox
                   role={ role }
                   conteudo={ {
@@ -77,7 +84,7 @@ function OrderCard() {
                 />
               </div>
             </div>
-          </div>
+          </a>
         </div>
       ))}
     </div>

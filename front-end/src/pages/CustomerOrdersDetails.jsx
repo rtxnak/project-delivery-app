@@ -39,35 +39,50 @@ function CustomerOrdersDetails() {
   return (
     <div>
       <Header />
-      <div className="content">
-        <h1>Detalhe do Pedido</h1>
+      <h1
+        id="h1-detail"
+      >
+        Detelhes do pedido
+      </h1>
+      <div
+        className="content"
+        id="detail-content"
+      >
         {order && (
           <>
             <div
+              className="columns"
+              id="header-detail"
               style={ { display: 'flex' } }
             >
               <div
+                className="column"
                 data-testid={ testOrderId }
               >
                 {`PEDIDO ${order.id}`}
               </div>
               <div
+                className="column"
                 data-testid={ testSellerName }
               >
                 {`P.Vend ${order.seller.name}`}
               </div>
               <div
+                className="column"
                 data-testid={ testOrderDate }
               >
                 {new Date(order.saleDate).toLocaleDateString('pt-BR')}
               </div>
               <div
+                id="status-detail"
+                className="column"
                 data-testid={ testStatus }
-                style={ { color: 'green', fontSize: '50px' } }
               >
                 {status}
               </div>
               <button
+                id="btn-delivery"
+                className="column"
                 type="button"
                 disabled={ status !== 'Em Trânsito' }
                 onClick={ () => handleStatus() }

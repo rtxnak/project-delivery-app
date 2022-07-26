@@ -43,6 +43,7 @@ export default function ButtonFinalizar({
   return (
     <div id="button-finalizar">
       <button
+        className="btn-checkout"
         disabled={ handleDisabled() }
         type="button"
         data-testid={ testId }

@@ -4,8 +4,11 @@ import OrderText from '../../text/orders/OrdersText';
 
 function RequestOrderBox({ role, conteudo, testId }) {
   return (
-    <div className="div-pedido">
-      <div>
+    <div>
+      <div
+        className="column"
+        id="col-order-num"
+      >
         <div>
           Pedido
         </div>

@@ -23,7 +23,7 @@ function CheckoutInput({
   };
   return (
     <>
-      <td className="table">
+      <td>
         <label htmlFor="p-vendedora">
           <h2>P. Vendedora Responsável</h2>
           <select

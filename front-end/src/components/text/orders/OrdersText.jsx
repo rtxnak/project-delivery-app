@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 function OrdersText({ role, testId, conteudo, orderId }) {
   return (
     <h1
-      className="teste"
       data-testid={ `${role}${testId}${orderId}` }
     >
       { conteudo }
