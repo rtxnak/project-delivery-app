@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Flex } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
-import { changeStatusOrder } from '../../../services/requestAPI';
+import { changeStatusOrder } from '../../services/requestAPI';
 
 function OrderStatusButton({ statusDaVenda }) {
   const { id } = useParams();

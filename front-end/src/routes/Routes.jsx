@@ -48,7 +48,7 @@ export default function Rotas() {
           />
           <Route exact path="/admin/manage" element={ <Private><Admin /></Private> } />
           <Route exact path="/seller/orders" element={ <OrderSeller /> } />
-          <Route exact path="/seller/orders/:id" component={ DetailsSeller } />
+          <Route exact path="/seller/orders/:id" element={ <DetailsSeller /> } />
         </Routes>
       </AuthProvider>
     </Router>

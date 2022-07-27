@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Flex, Text } from '@chakra-ui/react';
 import { requestOrderDetails } from '../../../services/requestAPI';
-import OrderStatusButton from '../../button/status/OrderStatusButton';
+import OrderStatusButton from '../../button/OrderStatusButton';
 
 function OrderDetailContainer() {
   const [orders, setOrders] = useState([]);
