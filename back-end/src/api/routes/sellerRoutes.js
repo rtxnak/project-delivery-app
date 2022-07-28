@@ -5,9 +5,11 @@ const sellerController = require('../controllers/sellerController');
 const sellerRoute = express.Router();
 
 sellerRoute
+  .get('/orders/:id',
+    sellerController.findSale)
   .post('/orders',
-  sellerController.getAllSales)
+      sellerController.getAllSales)
   .put('/orders',
-  sellerController.updateSaleStatus);
+    sellerController.updateSaleStatus);
 
 module.exports = sellerRoute;

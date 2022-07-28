@@ -11,6 +11,19 @@ const getAll = async (sellerId) => {
   return { code: 200, content: { salesResult } };
 };
 
+async function getById(saleId) {
+  const sale = await sales.findByPk(saleId,
+    {
+      include: [
+        { model: products, as: 'products' },
+      ],
+    });
+
+  console.log(sale.dataValues);
+  if (!sale) throw new NotFound('Venda não encontrada');
+  return sale;
+}
+
 const update = async (orderId, status) => {
   const saleUpdated = await sales.update(
     { status },
@@ -28,4 +41,5 @@ const update = async (orderId, status) => {
 module.exports = {
   getAll,
   update,
+  getById,
 };
