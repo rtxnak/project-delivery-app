@@ -46,12 +46,23 @@ export default function Rotas() {
             path="/customer/orders/:id"
             element={ <Private><CustomerOrdersDetails /></Private> }
           />
-          <Route exact path="/admin/manage" element={ <Private><Admin /></Private> } />
-          <Route exact path="/seller/orders" element={ <OrderSeller /> } />
-          <Route exact path="/seller/orders/:id" element={ <DetailsSeller /> } />
+          <Route
+            exact
+            path="/admin/manage"
+            element={ <Private><Admin /></Private> }
+          />
+          <Route
+            exact
+            path="/seller/orders"
+            element={ <Private><OrderSeller /></Private> }
+          />
+          <Route
+            exact
+            path="/seller/orders/:id"
+            element={ <Private><DetailsSeller /></Private> }
+          />
         </Routes>
       </AuthProvider>
     </Router>
   );
 }
-//
