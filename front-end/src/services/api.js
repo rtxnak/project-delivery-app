@@ -67,3 +67,24 @@ export const createNewSale = async (sale, token) => {
     return error.response;
   }
 };
+
+export const getSellerOrderDetail = async (id) => {
+  try {
+    const response = await api.get(`/seller/orders/${id}`);
+    const order = response.data;
+    console.log(order);
+    return order;
+  } catch (error) {
+    return error.response;
+  }
+};
+
+export const updateStatusSellerOrder = async (orderId, status) => {
+  try {
+    const response = await api.put('/seller/orders', { orderId, status });
+    const order = response.data;
+    return order;
+  } catch (error) {
+    return error.response;
+  }
+};
