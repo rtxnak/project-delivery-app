@@ -1,4 +1,5 @@
 const sellerService = require('../services/sellerService');
+const { ErrorBase } = require('../utils/Erros');
 
 const getAllSales = async (req, res) => {
   try {
