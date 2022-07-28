@@ -1,4 +1,5 @@
 const sellerService = require('../services/sellerService');
+const { ErrorBase } = require('../utils/Erros');
 
 const getAllSales = async (req, res) => {
   try {
@@ -26,7 +27,21 @@ const updateSaleStatus = async (req, res) => {
   }
 };
 
+const findSale = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const sale = await sellerService.getById(id);
+    return res.status(200).json(sale);
+  } catch (error) {
+    if (error instanceof ErrorBase) {
+      return res.status(error.code).json({ message: error.message });
+    }
+    return res.status(500).json({ message: error.message });
+  }
+};
+
 module.exports = {
   getAllSales,
   updateSaleStatus,
+  findSale,
 };

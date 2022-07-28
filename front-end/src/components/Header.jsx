@@ -24,7 +24,7 @@ export default function Header() {
         { user.role === 'seller' && (
           <NavBar
             title="PEDIDOS"
-            testId="seller__element-navbar-link-orders"
+            testId="customer_products__element-navbar-link-orders"
             link="/seller/orders"
           />
         ) }

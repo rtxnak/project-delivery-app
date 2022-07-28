@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import MyContext from '../context';
+import Context from '../context';
 import { requestProdutos, requestSellers } from '../services/requestAPI';
 
 function Provider({ children }) {
@@ -29,9 +29,9 @@ function Provider({ children }) {
   };
 
   return (
-    <MyContext.Provider value={ contextValue }>
+    <Context.Provider value={ contextValue }>
       { children }
-    </MyContext.Provider>
+    </Context.Provider>
   );
 }
 

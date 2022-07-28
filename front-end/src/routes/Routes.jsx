@@ -14,9 +14,9 @@ import Customer from '../pages/CustomerProducts';
 import Checkout from '../pages/CustomerCheckout';
 import Admin from '../pages/Admin';
 import OrderSeller from '../pages/OrderSeller';
+import DetailsSeller from '../pages/DetailsSeller';
 import CustomerOrders from '../pages/CustomerOrders';
 import CustomerOrdersDetails from '../pages/CustomerOrdersDetails';
-// import SellerDetails from '../pages/SellerDetails';
 
 export default function Rotas() {
   return (
@@ -46,12 +46,23 @@ export default function Rotas() {
             path="/customer/orders/:id"
             element={ <Private><CustomerOrdersDetails /></Private> }
           />
-          <Route exact path="/admin/manage" element={ <Private><Admin /></Private> } />
-          <Route exact path="/seller/orders" element={ <OrderSeller /> } />
-          {/* <Route exact path="/seller/orders/:id" element={ <SellerDetails /> } /> */}
+          <Route
+            exact
+            path="/admin/manage"
+            element={ <Private><Admin /></Private> }
+          />
+          <Route
+            exact
+            path="/seller/orders"
+            element={ <Private><OrderSeller /></Private> }
+          />
+          <Route
+            exact
+            path="/seller/orders/:id"
+            element={ <Private><DetailsSeller /></Private> }
+          />
         </Routes>
       </AuthProvider>
     </Router>
   );
 }
-//
