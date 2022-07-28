@@ -1,3 +1,4 @@
+const { NotFound } = require('../utils/Erros');
 const { sales, products } = require('../../database/models');
 
 const getAll = async (sellerId) => {
